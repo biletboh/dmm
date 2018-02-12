@@ -1,11 +1,12 @@
 from rest_framework import serializers
 
-from leads.models import Lead
+from .models import Lead
 
 
-class AccountSerializer(serializers.ModelSerializer):
+class LeadSerializer(serializers.ModelSerializer):
     """Serialize lead's data."""
 
     class Meta:
         model = Lead
-        fields = ('id', 'email', 'name', 'phone', 'message')
+        fields = ('email', 'name', 'phone', 'message')
+        read_only_fields = ('date',)
