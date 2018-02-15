@@ -1,0 +1,14 @@
+import { HTTP } from './common'
+
+export const Lead = {
+  create (config) {
+    return HTTP.post('/leads/', config).then(response => {
+      return response.data
+    })
+  },
+  list () {
+    return HTTP.get('/leads/').then(response => {
+      return response.data
+    })
+  }
+}
