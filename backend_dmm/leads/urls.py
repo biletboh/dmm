@@ -7,6 +7,8 @@ app_name = 'leads'
 
 urlpatterns = [
     path('leads/', views.LeadListCreateView.as_view(), name='list_create'),
+    path('briefs/', views.BriefListCreateView.as_view(),
+         name='brief_list_create'),
 ]
 
 
