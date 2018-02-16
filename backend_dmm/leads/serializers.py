@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Lead
+from .models import Brief, Lead
 
 
 class LeadSerializer(serializers.ModelSerializer):
@@ -9,4 +9,14 @@ class LeadSerializer(serializers.ModelSerializer):
     class Meta:
         model = Lead
         fields = ('email', 'name', 'phone', 'message')
+        read_only_fields = ('date',)
+
+
+class BriefSerializer(serializers.ModelSerializer):
+    """Serialize brief data."""
+
+    class Meta:
+        model = Brief
+        fields = ('industry', 'experience', 'aim', 'stage', 'strategies',
+                  'audience', 'callcenter', 'marketing', 'payment', 'lead')
         read_only_fields = ('date',)
