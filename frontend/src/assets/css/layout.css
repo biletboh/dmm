@@ -793,26 +793,26 @@ fieldset[disabled] .btn-theme {
 
 /* Page On Scroll */
 @media (min-width: 992px) {
-  .page-on-scroll .header .navbar {
+  .page_on_scroll.header .navbar {
     background: #fff;
     border-bottom-color: #f0f0f0;
     transition-duration: 300ms;
     transition-property: all;
     transition-timing-function: cubic-bezier(0.7, 1, 0.7, 1);
   }
-  .page-on-scroll .header .logo-img-main {
+  .page_on_scroll.header .logo-img-main {
     display: none;
     transition-duration: 400ms;
     transition-property: all;
     transition-timing-function: cubic-bezier(0.7, 1, 0.7, 1);
   }
-  .page-on-scroll .header .logo-img-active {
+  .page_on_scroll.header .logo-img-active {
     display: inline-block;
     transition-duration: 400ms;
     transition-property: all;
     transition-timing-function: cubic-bezier(0.7, 1, 0.7, 1);
   }
-  .page-on-scroll .header .nav-item-child {
+  .page_on_scroll.header .nav-item-child {
     color: #515769;
     transition-duration: 300ms;
     transition-property: all;

@@ -1,6 +1,6 @@
 <template>
   <!--========== HEADER ==========-->
-  <header v-bind:class="{ active: isActive, 'text-danger': hasError }" class="header navbar-fixed-top">
+  <header v-bind:class="{ page_on_scroll: scrollPosition > 60 }" class="header navbar-fixed-top">
     <!-- Navbar -->
     <nav class="navbar" role="navigation">
       <div class="container">
@@ -41,22 +41,18 @@
 export default {
   name: 'Header',
   data: function () {
-    return 'scroll'
+    return {scrollPosition: null}
   },
   methods: {
-    handleScroll () {
-      if (window.scrollY > 60) {
-        console.log('scrolled')
-      } else {
-        console.log('not scrolled')
-      }
+    updateScroll () {
+      this.scrollPosition = window.scrollY
     }
   },
-  created () {
-    window.addEventListener('scroll', this.handleScroll)
+  mounted () {
+    window.addEventListener('scroll', this.updateScroll)
   },
-  destroyed () {
-    window.removeEventListener('scroll', this.handleScroll)
+  destroy () {
+    window.removeEventListener('scroll', this.updateScroll)
   }
 }
 </script>

@@ -11,7 +11,6 @@
 </template>
 
 <script>
-import DmmBase from './components/DmmBase'
 import Preloader from './components/Preloader'
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -22,7 +21,6 @@ import Clients from './components/Clients'
 export default {
   name: 'App',
   components: {
-    'dmm-base': DmmBase,
     'dmm-preloader': Preloader,
     'dmm-header': Header,
     'dmm-footer': Footer,
@@ -34,5 +32,5 @@ export default {
 </script>
 
 <style>
-@import'bootstrap/dist/css/bootstrap.css'
+@import 'bootstrap/dist/css/bootstrap.css'
 </style>

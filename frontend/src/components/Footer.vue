@@ -16,13 +16,7 @@
           </div>
           <div class="col-sm-5 sm-margin-b-30">
             <h2 class="color-white">Send Us A Note</h2>
-            <form id="footerForm">
-              <input type="text" class="form-control footer-input margin-b-20" placeholder="Name" required>
-              <input type="email" class="form-control footer-input margin-b-20" placeholder="Email" required>
-              <input type="text" class="form-control footer-input margin-b-20" placeholder="Phone" required>
-              <textarea class="form-control footer-input margin-b-30" rows="6" placeholder="Message" required></textarea>
-              <button type="submit" class="btn-theme btn-theme-sm btn-base-bg text-uppercase">Submit</button>
-            </form>
+            <dmm-create-lead></dmm-create-lead>
           </div>
         </div>
         <!--// end row -->
@@ -49,12 +43,12 @@
 </template>
 
 <script>
+import CreateLead from './CreateLead'
+
 export default {
   name: 'Footer',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
+  components: {
+    'dmm-create-lead': CreateLead
   }
 }
 </script>
