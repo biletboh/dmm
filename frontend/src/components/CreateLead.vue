@@ -31,7 +31,6 @@ export default {
       event.preventDefault()
     },
     createLead () {
-      console.log('send data to store')
       this.$store.dispatch('createLead', { name: this.name, email: this.email, phone: this.phone, message: this.message })
     }
   }

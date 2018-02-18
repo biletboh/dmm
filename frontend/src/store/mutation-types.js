@@ -1,2 +1,4 @@
 export const ADD_LEAD = 'ADD_LEAD'
 export const SET_LEADS = 'SET_LEADS'
+export const ACCESS_BRIEFS_OPTIONS = 'ACCESS_BRIEFS_OPTIONS'
+export const INCREMENT_BRIEF = 'INCREMENT_BRIEF'
