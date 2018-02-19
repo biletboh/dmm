@@ -1,7 +1,8 @@
 <template>
-  <div>
+  <div class="component-wrapper">
     <!--========== PARALLAX ==========-->
-    <div class="parallax-window" data-parallax="scroll"  data-image-src='../assets/img/all/poster1.jpeg'>
+    <div class="parallax-window" >
+      <img src="../assets/img/all/poster1.jpeg" v-parallax="0.4" class="parallax-img" alt="">
       <div class="parallax-content container">
         <h1 class="carousel-title">General Marketing Strategies</h1>
         <p>DMM is a qualified support for your company at all stages of business development. <br> We offer you a profitable cooperation in marketing consulting for ICO, Forex, <br> Binary, Cloud Mining, Online Games.</p>
@@ -25,7 +26,7 @@
             of the client. We offer solutions for both specific marketing and complex tasks. This makes easier for you to find a company that can solve all optimization problems and promotion of the business online. As a result of our cooperation, you will
             better understand your target audience, increase loyalty to your product and strengthen your brand through an integrated marketing approach and interaction with the leading team of experts in the market.
           </p>
-          <div class="text-center"><router-link to="/breef"  class="btn-theme btn-theme-sm btn-base-bg text-uppercase">SAY HELLO</router-link></div>
+          <div class="text-center"><router-link to="/brief"  class="btn-theme btn-theme-sm btn-base-bg text-uppercase">SAY HELLO</router-link></div>
         </div>
       </div>
       <!--// end row -->
@@ -36,6 +37,11 @@
 
 <script>
 /* eslint-disable */
+import Vue from 'vue'
+import VueParallaxJs from 'vue-parallax-js'
+
+Vue.use(VueParallaxJs)
+
 export default {
   name: 'Product_1'
 }
@@ -43,4 +49,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.parallax-img{
+  top: -65%;
+}
 </style>

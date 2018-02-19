@@ -77,5 +77,15 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+.carousel-inner{
+  height: 100vh;
+}
+.carousel-centered{
+  top: 20%;
+  transform: none;
+}
+video{
+  display: block;
+  margin: 0 auto 0;
+}
 </style>
