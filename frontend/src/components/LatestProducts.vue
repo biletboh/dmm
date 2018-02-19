@@ -19,7 +19,7 @@
         </div>
         <h4><a href="products1.html">General Marketing Strategies</a></h4>
         <p>Services for managers with the aim of implementing marketing solutions for business development and increasing sales.</p>
-        <a class="link" href="products1.html">Read More</a>
+        <router-link to="/product_1" class="link">Read More</router-link>
       </div>
       <!-- End Latest Products -->
 
@@ -32,7 +32,7 @@
         </div>
         <h4><a href="products2.html">Turn-key Digital Money Startups</a></h4>
         <p>Creation of start-ups for a thoughtful business plan, provision and development of the necessary software, integration and adjustment of marketing and management systems.</p>
-        <a class="link" href="products2.html">Read More</a>
+        <router-link to="/product_2" class="link">Read More</router-link>
       </div>
       <!-- End Latest Products -->
 
@@ -45,7 +45,7 @@
         </div>
         <h4><a href="products3 .html">Payment Systems Integration</a></h4>
         <p>Installation of 4 main payment methods: Visa / Mastercard, E-wallet, Bank transfers, Cryptocurrencies in order to simplify payment for services.</p>
-        <a class="link" href="products3.html">Read More</a>
+        <router-link to="/product_3" class="link">Read More</router-link>
       </div>
       <!-- End Latest Products -->
     </div>

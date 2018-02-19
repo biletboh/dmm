@@ -25,7 +25,7 @@
         <div class="collapse navbar-collapse nav-collapse">
           <div class="menu-container">
             <ul class="navbar-nav navbar-nav-right">
-              <li class="nav-item"><a class="nav-item-child nav-item-hover" href="breef.html">SAY HELLO</a></li>
+              <li class="nav-item"><router-link to="/breef"  class="nav-item-child nav-item-hover" href="breef.html">SAY HELLO</router-link></li>
             </ul>
           </div>
         </div>

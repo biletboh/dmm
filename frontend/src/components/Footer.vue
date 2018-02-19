@@ -37,8 +37,9 @@
           <img class="footer-logo" src="../assets/img/logo.svg" alt="Asentus Logo">
         </div>
         <div class="col-xs-6 text-right">
-          <p class="margin-b-0"><a class="color-base fweight-700" href="termsofuse.html">Terms of Use</a>
-            <br> <a class="color-base fweight-700" href="privacypolicy.html">Privacy Policy</a></p>
+          <p class="margin-b-0">
+            <router-link to="/terms" class="color-base fweight-700">Terms of Use</router-link>
+            <br> <router-link to="/policy" class="color-base fweight-700" >Privacy Policy</router-link></p>
         </div>
       </div>
       <!--// end row -->
@@ -49,6 +50,7 @@
 </template>
 
 <script>
+/* eslint-disable */
 export default {
   name: 'Footer',
   data () {
