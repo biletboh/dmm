@@ -141,7 +141,8 @@ class Brief(models.Model):
 
     date = models.DateTimeField(default=timezone.now)
     lead = models.ForeignKey(Lead, on_delete=models.CASCADE,
-                             related_name='brief')
+                             related_name='brief',
+                             to_field='email')
 
     def __str__(self):
         return f'Brief of {self.lead.email}'
