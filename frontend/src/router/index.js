@@ -11,7 +11,7 @@ import Policy from '@/components/Policy'
 import Dashboard from '@/components/Dashboard'
 import Landing from '@/components/Landing'
 import Not_Found from '@/components/Not_Found'
-// import Brief from '@/components/Brief'
+import Brief from '@/components/Brief'
 
 Vue.use(Router)
 
@@ -28,7 +28,7 @@ export default new Router({
     { path: 'product_3', components: {sublanding: Product_3} },
     { path: 'terms',     components: {sublanding: Terms} },
     { path: 'policy',    components: {sublanding: Policy} },
-    // { path: 'brief',     components: {sublanding: Brief} },
+    { path: 'brief',     components: {sublanding: Brief} },
     { path: 'not-found', components: {sublanding: Not_Found} },
     ]
   },
