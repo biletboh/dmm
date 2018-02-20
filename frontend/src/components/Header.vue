@@ -13,10 +13,10 @@
 
           <!-- Logo -->
           <div class="logo">
-            <a class="logo-wrap" href="index.html">
+            <router-link to="/" class="logo-wrap">
               <img class="logo-img logo-img-main" src="../assets/img/logo.svg" alt="Asentus Logo">
               <img class="logo-img logo-img-active" src="../assets/img/logo-dark.svg" alt="Asentus Logo">
-            </a>
+            </router-link>
           </div>
           <!-- End Logo -->
         </div>
@@ -25,7 +25,7 @@
         <div class="collapse navbar-collapse nav-collapse">
           <div class="menu-container">
             <ul class="navbar-nav navbar-nav-right">
-              <li class="nav-item"><a class="nav-item-child nav-item-hover" href="breef.html">SAY HELLO</a></li>
+              <li class="nav-item"><router-link to="/brief"  class="nav-item-child nav-item-hover">SAY HELLO</router-link></li>
             </ul>
           </div>
         </div>

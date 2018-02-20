@@ -1,39 +1,20 @@
 <template>
   <div id="app">
-    <dmm-header></dmm-header>
-    <dmm-slider></dmm-slider>
-    <!--========== PAGE LAYOUT ==========-->
-    <dmm-latest-products></dmm-latest-products>
-    <dmm-clients></dmm-clients>
-    <dmm-brief></dmm-brief>
-    <!--========== END PAGE LAYOUT ==========-->
-    <dmm-footer></dmm-footer>
+    <router-view name="landing"></router-view>
+    <router-view name="dashboard"></router-view>
   </div>
 </template>
 
 <script>
-import Preloader from './components/Preloader'
-import Header from './components/Header'
-import Footer from './components/Footer'
-import Slider from './components/Slider'
-import LatestProducts from './components/LatestProducts'
-import Clients from './components/Clients'
-import Brief from './components/Brief'
+/* eslint-disable */
+import Vue from 'vue'
+import VueParallaxJs from 'vue-parallax-js'
+
+Vue.use(VueParallaxJs)
 
 export default {
-  name: 'App',
-  components: {
-    'dmm-preloader': Preloader,
-    'dmm-header': Header,
-    'dmm-footer': Footer,
-    'dmm-slider': Slider,
-    'dmm-latest-products': LatestProducts,
-    'dmm-clients': Clients,
-    'dmm-brief': Brief
-  }
+  name: 'App'
 }
 </script>
 
-<style>
-@import 'bootstrap/dist/css/bootstrap.css'
-</style>
+<style></style>

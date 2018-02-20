@@ -147,6 +147,7 @@ label {
 
 
 
+
 .black-text {
   color: #515769;
 }
@@ -245,6 +246,28 @@ label {
   font-weight: 500;
   color: #515769;
 }
+
+
+
+.component-wrapper{
+position: relative;
+}
+.parallax-window{
+/*height: 100vh;*/
+overflow: hidden;
+position: relative;
+}
+.parallax-img{
+  z-index: -1;
+  position: absolute;
+  top: -50%;
+  left: 0;
+  right: 0;
+  margin: 0 auto 0;
+/*  width: 100%;*/
+}
+
+
 
 @keyframes animationFrames {
   0% {
