@@ -1,4 +1,14 @@
 <template>
+
+    <div class="component-wrapper">
+    <!--========== PARALLAX ==========-->
+    <div class="parallax-window" >
+      <img src="../assets/img/1920x1080/01.jpg" v-parallax="0.4" class="parallax-img" alt="">
+      <div class="parallax-content container">
+        <h1 class="carousel-title">TAKE PART IN A SHORT SURVEY!</h1>
+      </div>
+    </div>
+
   <!--========== BRIEF ==========-->
   <div class="bg-color-sky-light" data-auto-height="true">
     <div class="content-lg container">
@@ -7,7 +17,7 @@
         <p>Answer 9 simple questions and get first free email consultation right now!</p>
         <button v-if="showBriefStart" class="btn-theme btn-theme-sm btn-theme-lg btn-base-bg text-uppercase" @click="showBriefForm=true; showLeadForm=false; showBriefStart=false">START</button>
         <div class="row">
-          <div class="col-sm-6 col-sm-offset-3 sm-margin-b-30">
+          <div class="col-sm-6 col-sm-offset-3 sm-margin-b-30 lead-form">
             <p class="text-center">If you have any other questions, fill out the feedback form below</p>
             <dmm-create-lead></dmm-create-lead>
           </div>
@@ -30,6 +40,7 @@
     </div>
   </div>
   <!--========== END BRIEF ==========-->
+</div>
 </template>
 
 <script>
@@ -85,3 +96,11 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.lead-form >>> input,
+.lead-form >>> textarea {
+  background-color: #fff;
+  border: 1px solid #ccc;
+ }
+</style>

@@ -43,7 +43,8 @@ INSTALLED_APPS = [
 
     # Django apps
     'corsheaders',
-    'rest_framework'
+    'rest_framework',
+    'rest_framework.authtoken'
 ]
 
 MIDDLEWARE = [
@@ -114,6 +115,16 @@ AUTH_PASSWORD_VALIDATORS = [
                  '.NumericPasswordValidator'),
     },
 ]
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication'
+    )
+}
+
 
 
 # Internationalization

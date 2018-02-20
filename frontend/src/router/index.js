@@ -12,6 +12,8 @@ import Dashboard from '@/components/Dashboard'
 import Landing from '@/components/Landing'
 import Not_Found from '@/components/Not_Found'
 import Brief from '@/components/Brief'
+import Thanks from '@/components/Thanks'
+import Login from '@/components/Login'
 
 Vue.use(Router)
 
@@ -30,6 +32,8 @@ export default new Router({
     { path: 'policy',    components: {sublanding: Policy} },
     { path: 'brief',     components: {sublanding: Brief} },
     { path: 'not-found', components: {sublanding: Not_Found} },
+    { path: 'thanks',    components: {sublanding: Thanks} },
+    { path: 'login',     components: {sublanding: Login} },
     ]
   },
   { path: '/dashboard', components: {dashboard: Dashboard} },

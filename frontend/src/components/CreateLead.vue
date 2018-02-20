@@ -1,5 +1,5 @@
 <template>
-  <form id="footerForm" v-on:submit="submitForm">
+  <form  v-on:submit="submitForm">
     <input v-model="name" type="text" class="form-control footer-input margin-b-20" placeholder="Name" required>
     <input v-model="email" type="email" class="form-control footer-input margin-b-20" placeholder="Email" required>
     <input v-model="phone" type="text" class="form-control footer-input margin-b-20" placeholder="Phone" required>
