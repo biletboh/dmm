@@ -21,15 +21,6 @@ export default {
     'dmm-latest-products': LatestProducts,
     'dmm-clients': Clients,
     'dmm-achievements': Achievements
-  },
-  methods: {
-
-  },
-  created () {
-    console.log('Home component created');
-  },
-  destroyed () {
-    console.log('Home component destroyed');
   }
 }
 </script>

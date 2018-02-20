@@ -13,7 +13,7 @@
 
           <!-- Logo -->
           <div class="logo">
-            <router-link to="/" class="logo-wrap" href="index.html">
+            <router-link to="/" class="logo-wrap">
               <img class="logo-img logo-img-main" src="../assets/img/logo.svg" alt="Asentus Logo">
               <img class="logo-img logo-img-active" src="../assets/img/logo-dark.svg" alt="Asentus Logo">
             </router-link>

@@ -88,10 +88,6 @@ export default {
   },
   mounted () {
     this.fillCharts();
-    console.log('Achievements component created');
-  },
-  destroyed () {
-    console.log('Achievements component destroyed');
   }
 }
 </script>

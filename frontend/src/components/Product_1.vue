@@ -37,11 +37,6 @@
 
 <script>
 /* eslint-disable */
-import Vue from 'vue'
-import VueParallaxJs from 'vue-parallax-js'
-
-Vue.use(VueParallaxJs)
-
 export default {
   name: 'Product_1'
 }

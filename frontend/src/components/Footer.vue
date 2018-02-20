@@ -52,12 +52,7 @@
 <script>
 /* eslint-disable */
 export default {
-  name: 'Footer',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
-  }
+  name: 'Footer'
 }
 </script>
 

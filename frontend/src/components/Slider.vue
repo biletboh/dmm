@@ -66,12 +66,7 @@
 
 <script>
 export default {
-  name: 'Slider',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
-  }
+  name: 'Slider'
 }
 </script>
 
