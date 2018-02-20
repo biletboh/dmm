@@ -9,9 +9,9 @@
     </transition>
     <div class="row">
       <div v-for="(choice, index) in briefOptions[position]['choices']" :key="index" class="col-sm-6 sm-margin-b-2">
-        <div class="service" data-height="height" @click="nextQuestion()" :id="choice.label">
+        <div class="service" data-height="height" @click="nextQuestion(), saveBriefData(choice.value)" :id="choice.label">
           <div class="service-info">
-            <h3>{{ choice['display_name'] }} </h3>
+            <h3>{{ choice.display_name }} </h3>
           </div>
         </div>
       </div>
@@ -26,6 +26,17 @@ export default {
   name: 'BriefOptions',
   data () {
     return {
+      fields: [
+        'industry',
+        'experience',
+        'aim',
+        'stage',
+        'strategies',
+        'audience',
+        'callcenter',
+        'marketing',
+        'payment'
+      ],
       titles: [
         'In which industry do you work / plan to work?',
         'What is your experience in this industry?',
@@ -43,21 +54,21 @@ export default {
     ...mapGetters({
       briefOptions: 'briefOptions'
     }),
+    ...mapGetters({
+      briefData: 'briefData'
+    }),
     position () {
       return this.$store.state.briefCount
     }
   },
   methods: {
-    submitForm (event) {
-      this.createBrief()
-      event.preventDefault()
-    },
     nextQuestion: function () {
       return this.$store.dispatch('incrementBriefCount')
     },
-    createBrief () {
-      console.log('send data to store')
-      // this.$store.dispatch('createBrief', { industry: this.industry })
+    saveBriefData (value) {
+      var field = this.fields[this.position - 1]
+      var briefData = {'field': field, 'value': value}
+      this.$store.dispatch('addBriefData', briefData)
     }
   },
   beforeCreate () {

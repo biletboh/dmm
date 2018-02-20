@@ -6,22 +6,26 @@
         <h2>Let's analyze and improve your project!</h2>
         <p>Answer 9 simple questions and get first free email consultation right now!</p>
         <button v-if="showBriefStart" class="btn-theme btn-theme-sm btn-theme-lg btn-base-bg text-uppercase" @click="showBriefForm=true; showLeadForm=false; showBriefStart=false">START</button>
-      </div>
-      <div v-if="showBriefCompleted" id="complete-test" class="text-center">
-        <h2>You have successfully completed!</h2>
+        <div class="row">
+          <div class="col-sm-6 col-sm-offset-3 sm-margin-b-30">
+            <p class="text-center">If you have any other questions, fill out the feedback form below</p>
+            <dmm-create-lead></dmm-create-lead>
+          </div>
+        </div>
       </div>
       <dmm-brief-options v-if="showBriefForm"></dmm-brief-options>
-      <div v-if="showLeadForm" class="row">
-        <div class="col-sm-6 col-sm-offset-3 sm-margin-b-30">
-          <p class="text-center">If you have any other questions, fill out the feedback form below</p>
-          <dmm-create-lead></dmm-create-lead>
+      <div v-if="showBriefCompleted" id="complete-test" class="text-center">
+        <h2>You have successfully completed!</h2>
+        <div class="row">
+          <div class="col-sm-6 col-sm-offset-3 sm-margin-b-30">
+            <p class="text-center">Please leave your contact information to get the most advantageous offer from DMM based on the received answers.</p>
+            <dmm-create-lead></dmm-create-lead>
+          </div>
         </div>
       </div>
-      <div v-if="showBriefCompleted" class="row">
-        <div class="col-sm-6 col-sm-offset-3 sm-margin-b-30">
-          <p class="text-center">Please leave your contact information to get the most advantageous offer from DMM based on the received answers. We will contact you as soon as possible.</p>
-          <dmm-create-lead></dmm-create-lead>
-        </div>
+      <div v-if="briefIsReady" id="thank-you" class="text-center">
+        <h2>Thank you!</h2>
+        <p class="text-center">We will contact you as soon as possible.</p>
       </div>
     </div>
   </div>
@@ -38,7 +42,6 @@ export default {
   data () {
     return {
       showBriefStart: true,
-      showLeadForm: true,
       showBriefForm: false
     }
   },
@@ -46,11 +49,33 @@ export default {
     ...mapGetters({
       briefCount: 'briefCount'
     }),
+    ...mapGetters({
+      leads: 'leads'
+    }),
+    ...mapGetters({
+      briefData: 'briefData'
+    }),
     showBriefCompleted () {
-      if (this.briefCount > 8) {
+      if (this.briefIsReady) {
+        return false
+      } else if (this.briefCount > 8) {
         return true
       } else {
         return false
+      }
+    },
+    briefIsReady () {
+      if (this.leads.length === 1) {
+        return this.createBrief()
+      }
+    }
+  },
+  methods: {
+    createBrief () {
+      if (Object.keys(this.briefData).length === 9) {
+        this.briefData['lead'] = this.leads[0].email
+        this.$store.dispatch('createBrief', this.briefData)
+        return true
       }
     }
   },
