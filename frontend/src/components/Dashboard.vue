@@ -281,13 +281,12 @@
                     <div class="card-header card-header-icon" data-background-color="blue">
                       <i class="material-icons">assignment</i>
                     </div>
-                    <h4 class="card-title">Striped Table</h4>
+                    <h4 class="card-title">Leads</h4>
                     <div class="card-content">
                       <div class="table-responsive">
                         <table class="table table-striped">
                           <thead>
                             <tr>
-                              <th class="text-center">#</th>
                               <th>Name</th>
                               <th>Email</th>
                               <th>Phone</th>
@@ -298,8 +297,7 @@
                             </tr>
                           </thead>
                           <tbody>
-                            <tr v-for="(lead, index) in leads" :key="lead.id">
-                              <td class="text-center">{{ index }}</td>
+                            <tr v-for="lead in leads" :key="lead.id">
                               <td>{{lead.name}}</td>
                               <td>{{lead.email}}</td>
                               <td>{{lead.phone}}</td>
@@ -359,25 +357,14 @@
 import Vue from 'vue'
 import VueSession from 'vue-session'
 import VueResource from 'vue-resource'
-import { Lead }  from '../api/leads'
-
+import { mapGetters } from 'vuex'
 
 Vue.use(VueResource)
 Vue.use(VueSession)
 
 export default {
   name: 'Dashboard',
-  data () { 
-    return {leads: []}
-  },
-  beforeCreate: function () {
-    if (!this.$session.exists()) {
-      this.$router.push('/login')
-    }
-  },
-  created(){
-    this.showLeads()
-  },
+  computed: mapGetters(['leads']),
   methods: {
     logout: function () {
       const confirmation = confirm("Are you sure?")
@@ -386,9 +373,14 @@ export default {
         this.$router.push('/') 
       }
     },
-    showLeads: function(){
-      this.leads = Lead.list()
+  },
+  beforeCreate: function () {
+    if (!this.$session.exists()) {
+      this.$router.push('/login')
     }
+  },
+  beforeMount () {
+    this.$store.dispatch('getLeads', this.$session.get('Token'))
   }
 }
 </script>

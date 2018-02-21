@@ -6,8 +6,14 @@ export const Lead = {
       return response.data
     })
   },
-  list () {
-    return HTTP.get('/leads/').then(response => {
+  list (token) {
+    return HTTP.get('/leads/',
+                    {
+                    headers: {
+                      'Authorization': 'Token ' + token
+                      }
+                    }
+                    ).then(response => {
       return response.data
     })
   }
