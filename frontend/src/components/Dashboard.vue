@@ -20,12 +20,12 @@
     </div>
     <div class="sidebar-wrapper">
       <div class="user">
-        <div class="photo">
+<!--         <div class="photo">
           <img src="../assets/img-material/faces/avatar.jpg" />
-        </div>
+        </div> -->
         <div class="info">
           <a data-toggle="collapse" href="#collapseExample" class="collapsed">
-            Admin
+            Hi, Admin
             <!--  <b class="caret"></b> -->
           </a>
 <!--                 <div class="collapse" id="collapseExample">
@@ -203,13 +203,13 @@
         <div class="main-panel">
           <nav class="navbar navbar-transparent navbar-absolute">
             <div class="container-fluid">
-              <div class="navbar-minimize">
+<!--               <div class="navbar-minimize">
                 <button id="minimizeSidebar" class="btn btn-round btn-white btn-fill btn-just-icon">
                   <i class="material-icons visible-on-sidebar-regular">more_vert</i>
                   <i class="material-icons visible-on-sidebar-mini">view_list</i>
                 </button>
-              </div>
-              <div class="navbar-header">
+              </div> -->
+<!--               <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse">
                   <span class="sr-only">Toggle navigation</span>
                   <span class="icon-bar"></span>
@@ -217,7 +217,7 @@
                   <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#"> Extended Tables </a>
-              </div>
+              </div> -->
               <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
 <!--                   <li>
@@ -253,6 +253,11 @@
                       </li>
                     </ul>
                   </li> -->
+                  <li>
+                    <router-link to="/"   class="btn btn-white btn-round"  >
+                      Home
+                    </router-link>
+                  </li>
                   <li>
                     <a  class="btn btn-white btn-round" @click="logout" >
                       Logout
@@ -358,9 +363,11 @@ import Vue from 'vue'
 import VueSession from 'vue-session'
 import VueResource from 'vue-resource'
 import { mapGetters } from 'vuex'
+import VueMaterial from 'vue-material'
 
 Vue.use(VueResource)
 Vue.use(VueSession)
+Vue.use(VueMaterial)
 
 export default {
   name: 'Dashboard',
@@ -388,4 +395,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 @import url(../assets/css/material-dashboard.css);
+.main-panel{
+  overflow: auto;
+}
 </style>
