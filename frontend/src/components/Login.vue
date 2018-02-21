@@ -31,10 +31,14 @@
 
 <script>
 /* eslint-disable */
-import { User }  from '../api/user'
 import Vue from 'vue'
+import { User }  from '../api/user'
+// import { HTTP } from '../api/common'
 import VueSession from 'vue-session'
+import VueResource from 'vue-resource'
 
+
+Vue.use(VueResource)
 Vue.use(VueSession)
 
 export default {
@@ -47,16 +51,26 @@ export default {
   },
   methods: {
     submitForm (event) {
+      event.preventDefault()
       this.userLogin();
 
       this.login = ''
       this.password = ''
-
-      event.preventDefault()
     },
     userLogin () {
-      User.login( { username: this.login, password: this.password } )
-    }
+      User.login( { username: this.login, password: this.password } ).then( response => {
+        console.log(response)
+        if (response.status === 200) {
+          this.$session.start();
+          this.$session.set('Token', response.data.token);
+          Vue.http.headers.common['Authorization'] = 'Token ' + response.data.token;
+          this.$router.push('/dashboard');
+        }else{
+          alert('Wrong login or password');
+        }
+      }
+      )
+    },
   }
 }
 </script>
@@ -69,5 +83,5 @@ export default {
 .login-form >>> input{
   background-color: #fff;
   border: 1px solid #ccc;
- }
+}
 </style>

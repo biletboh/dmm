@@ -9,7 +9,12 @@
 /* eslint-disable */
 import Vue from 'vue'
 import VueParallaxJs from 'vue-parallax-js'
+import VueSession from 'vue-session'
+import VueResource from 'vue-resource'
 
+
+Vue.use(VueResource)
+Vue.use(VueSession)
 Vue.use(VueParallaxJs)
 
 export default {
