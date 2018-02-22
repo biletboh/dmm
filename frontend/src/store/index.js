@@ -51,8 +51,8 @@ const actions = {
       commit(ADD_LEAD, lead)
     })
   },
-  getLead ({ commit }) {
-    Lead.list().then(leads => {
+  getLeads ({ commit }, token) {
+    Lead.list(token).then(leads => {
       commit(SET_LEADS, { leads })
     })
   },
