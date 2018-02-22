@@ -3,7 +3,9 @@
     <dmm-slider></dmm-slider>
     <dmm-latest-products></dmm-latest-products>
     <dmm-clients></dmm-clients>
+    <!--
     <dmm-achievements></dmm-achievements>
+    -->
   </div>
 </template>
 
