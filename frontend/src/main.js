@@ -15,7 +15,7 @@ require('./assets/vendor/bootstrap/css/bootstrap.min.css')
 require('./assets/css/animate.css')
 require('./assets/css/layout.css')
 require('./assets/css/custom.css')
-require('./assets/img/1920x1080/03.jpg')
+// require('./assets/img/1920x1080/03.jpg')
 
 Vue.config.productionTip = false
 

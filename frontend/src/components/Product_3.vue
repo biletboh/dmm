@@ -2,7 +2,7 @@
   <div class="component-wrapper">
     <!--========== PARALLAX ==========-->
     <div class="parallax-window" >
-      <img src="../assets/img/all/poster3.jpeg" v-parallax="0.4" class="parallax-img" alt="">
+      <img src="../assets/img/all/poster3.jpg" v-parallax="0.4" class="parallax-img" alt="">
       <div class="parallax-content container">
         <h1 class="carousel-title">Payment Systems <br> Integration</h1>
         <p>DMM is a software solution for payment systems integration into your business in our key directions: <br> ICO, Forex, Binary, Cloud Mining, Online Games. We provide the possibility <br> of receiving payments in 4 main ways: Visa / Mastercard, E-wallet,
@@ -46,6 +46,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .parallax-img{
-  top: -85%;
+  top: -100%;
 }
 </style>

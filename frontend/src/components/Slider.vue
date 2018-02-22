@@ -44,7 +44,7 @@
         </div>
       </div>
       <div class="item">
-        <video autoplay loop poster="../assets/img/all/poster3.jpeg">
+        <video autoplay loop poster="../assets/img/all/poster3.jpg">
                   <source src="../assets/video/3.mp4" type="video/mp4">
                 Your browser does not support the video tag.
                 </video>
@@ -82,5 +82,10 @@ export default {
 video{
   display: block;
   margin: 0 auto 0;
+}
+@media only screen and (min-width: 1024px) {
+  video{
+    width: 100% !important;
+  }
 }
 </style>

@@ -27,7 +27,7 @@
       <div v-if="showBriefCompleted" id="complete-test" class="text-center">
         <h2>You have successfully completed!</h2>
         <div class="row">
-          <div class="col-sm-6 col-sm-offset-3 sm-margin-b-30">
+          <div class="col-sm-6 col-sm-offset-3 sm-margin-b-30 lead-form">
             <p class="text-center">Please leave your contact information to get the most advantageous offer from DMM based on the received answers.</p>
             <dmm-create-lead></dmm-create-lead>
           </div>
@@ -98,6 +98,9 @@ export default {
 </script>
 
 <style scoped>
+.parallax-img{
+  top: -60%;
+}
 .lead-form >>> input,
 .lead-form >>> textarea {
   background-color: #fff;

@@ -250,12 +250,12 @@ label {
 
 
 .component-wrapper{
-position: relative;
+  position: relative;
 }
 .parallax-window{
-/*height: 100vh;*/
-overflow: hidden;
-position: relative;
+  /*height: 100vh;*/
+  overflow: hidden;
+  position: relative;
 }
 .parallax-img{
   z-index: -1;
@@ -264,7 +264,7 @@ position: relative;
   left: 0;
   right: 0;
   margin: 0 auto 0;
-/*  width: 100%;*/
+  /*  width: 100%;*/
 }
 
 
@@ -327,4 +327,9 @@ position: relative;
   100% {
     -ms-transform: scaleX(1.00) scaleY(1.00);
   }
+}
+@media only screen and (min-width: 1024px) {
+ .parallax-img{
+  width: 100% !important;
+}
 }
