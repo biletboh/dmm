@@ -53,13 +53,3 @@ class BriefCRUDTestCase(BriefSetUpMixin, APITestCase):
         self.client.force_authenticate(user=self.user)
         response = self.client.get(reverse('leads:brief_list_create'))
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-
-    def test_detail(self):
-        """Test the Brief detail endpoint."""
-
-        self.client.force_authenticate(user=self.user)
-        self.brief_data['lead'] = self.lead
-        self.brief = Brief.objects.create(**self.brief_data)
-        response = self.client.get(reverse('leads:brief_detail',
-                                           kwargs={'pk': self.brief.pk}))
-        self.assertEqual(response.status_code, status.HTTP_200_OK)

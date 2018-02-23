@@ -9,8 +9,6 @@ urlpatterns = [
     path('leads/', views.LeadListCreateView.as_view(), name='list_create'),
     path('briefs/', views.BriefListCreateView.as_view(),
          name='brief_list_create'),
-    path('briefs/<int:pk>/', views.BriefDetail.as_view(),
-         name='brief_detail'),
 ]
 
 
