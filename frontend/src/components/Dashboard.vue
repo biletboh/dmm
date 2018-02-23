@@ -295,9 +295,9 @@
                               <th>Name</th>
                               <th>Email</th>
                               <th>Phone</th>
+                              <th>Date</th>
                               <th>Message</th>
                               <th>Comment</th>
-                              <th>Date</th>
                               <th>Brief</th>
                             </tr>
                           </thead>
@@ -306,10 +306,10 @@
                               <td>{{lead.name}}</td>
                               <td>{{lead.email}}</td>
                               <td>{{lead.phone}}</td>
+                              <td>{{lead.date}}</td>
                               <td>{{lead.message}}</td>
                               <td>{{lead.comment}}</td>
-                              <td>{{lead.date}}</td>
-                              <td>{{lead.brief}}</td>
+                              <td></td>
                             </tr>
                           </tbody>
                         </table>
