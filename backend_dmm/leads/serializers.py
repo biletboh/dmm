@@ -8,8 +8,9 @@ class LeadSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Lead
-        fields = ('email', 'name', 'phone', 'message')
-        read_only_fields = ('date',)
+        fields = ('email', 'name', 'phone', 'message', 'date', 'brief')
+        read_only_fields = ('date', 'brief')
+        extra_kwargs = {'date': {'format': '%Y-%m-%d %H:%M'}}
 
 
 class BriefSerializer(serializers.ModelSerializer):

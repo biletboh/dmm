@@ -22,3 +22,11 @@ class BriefListCreateView(generics.ListCreateAPIView):
     permission_classes = [Or(IsAuthenticated, IsPostRequest, IsOptionsRequest)]
     queryset = Brief.objects.all()
     serializer_class = BriefSerializer
+
+
+class BriefDetail(generics.RetrieveAPIView):
+    """Display a brief."""
+
+    permission_classes = (IsAuthenticated,)
+    queryset = Brief.objects.all()
+    serializer_class = BriefSerializer
