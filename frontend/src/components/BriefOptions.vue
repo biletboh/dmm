@@ -7,6 +7,9 @@
       </div>
     </div>
     </transition>
+  <div  v-if="briefOptions.length == 1">
+    <img src="../assets/img/loading.gif" class="img-responsive center-block" alt="loading">
+  </div>
     <div class="row">
       <div v-for="(choice, index) in briefOptions[position]['choices']" :key="index" class="col-sm-6 sm-margin-b-2">
         <div class="service" data-height="height" @click="nextQuestion(), saveBriefData(choice.value)" :id="choice.label">

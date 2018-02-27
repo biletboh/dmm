@@ -33,10 +33,10 @@
           </div>
         </div>
       </div>
-      <div v-if="briefIsReady" id="thank-you" class="text-center">
+<!--       <div v-if="briefIsReady" id="thank-you" class="text-center">
         <h2>Thank you!</h2>
         <p class="text-center">We will contact you as soon as possible.</p>
-      </div>
+      </div> -->
     </div>
   </div>
   <!--========== END BRIEF ==========-->

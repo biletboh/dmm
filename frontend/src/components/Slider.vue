@@ -74,6 +74,7 @@ export default {
 <style scoped>
 .carousel-inner{
   height: 100vh;
+  min-height: 700px;
 }
 .carousel-centered{
   top: 20%;

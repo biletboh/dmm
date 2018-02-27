@@ -75,16 +75,15 @@ export default {
     submitForm (event) {
 
       this.phone = this.checkPlusNumber(this.phone)
-      console.log('submited'+this.phone)
       event.preventDefault()
 
       this.createLead()
       this.$router.push('/thanks')
 
-      this.name = ''
-      this.email = ''
-      this.phone = ''
-      this.message = ''
+      // this.name = ''
+      // this.email = ''
+      // this.phone = ''
+      // this.message = ''
     },
     createLead () {
       this.$store.dispatch('createLead', { name: this.name, email: this.email, phone: this.phone, message: this.message })

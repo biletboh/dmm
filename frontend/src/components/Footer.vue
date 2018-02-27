@@ -19,9 +19,9 @@
                 <p class="footer-list-item">Phones</p>
               </div>
               <div class="col-sm-10 col-xs-10">
-                <p>5934773945738457934</p>
-                <p>s74387885495734957</p>
-                <p>57839458734957934875</p>
+                <p></p>
+                <p></p>
+                <p></p>
               </div>
             </div>
 
