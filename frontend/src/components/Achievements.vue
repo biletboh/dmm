@@ -1,5 +1,6 @@
 <template>
   <div class="content-lg container">
+    <div id="for_script"></div>
     <div class="row margin-b-40">
       <div class="col-lg-12">
         <h2 class="text-center">Our achievements</h2>
@@ -39,6 +40,8 @@
 
 <script>
 /* eslint-disable */
+import 'jquery-mapael';
+import world_countries from '../assets/vendor/world_countries.js';
 export default {
   name: 'Achievements',
   methods: {
@@ -84,10 +87,166 @@ export default {
           }
         }
       });
+    },
+    fillMap: function(){
+      $(".mapСontainer").mapael({
+        map: {
+          name: "world_countries",
+          defaultArea: {
+            attrs: {
+              fill: "rgba(0, 204, 204, 0.5)",
+              stroke: "#ffffff"
+            },
+            attrsHover: {
+              fill: "rgba(0, 204, 204, 1)"
+            },
+            text: {
+              attrs: {
+                fill: "#505444"
+              },
+              attrsHover: {
+                fill: "#000"
+              }
+            }
+          }
+        },
+        plots: {
+        // Image plot
+        'Kiev': {
+          type: "image",
+          url: "http://email-list.org/marker.png",
+          width: 12,
+          height: 40,
+          latitude: 50.43,
+          longitude: 30.52,
+          tooltip: {
+            content: "<span style=\"font-weight:bold;\">Kiev, Ukraine</span>"
+          },
+          attrs: {
+            opacity: 1
+          },
+          attrsHover: {
+            transform: "s1.5"
+          }
+        },
+        'Minsk': {
+          type: "image",
+          url: "http://email-list.org/marker.png",
+          width: 12,
+          height: 40,
+          latitude: 53.89,
+          longitude: 27.56,
+          tooltip: {
+            content: "<span style=\"font-weight:bold;\">Minsk, Belarus</span>"
+          },
+          attrs: {
+            opacity: 1
+          },
+          attrsHover: {
+            transform: "s1.5"
+          }
+        },
+        'Limassol': {
+          type: "image",
+          url: "http://email-list.org/marker.png",
+          width: 12,
+          height: 40,
+          latitude: 34.70,
+          longitude: 33.02,
+          tooltip: {
+            content: "<span style=\"font-weight:bold;\">Limassol, Cyprus</span>"
+          },
+          attrs: {
+            opacity: 1
+          },
+          attrsHover: {
+            transform: "s1.5"
+          }
+        },
+        'NewDelhi': {
+          type: "image",
+          url: "http://email-list.org/marker.png",
+          width: 12,
+          height: 40,
+          latitude: 28.64,
+          longitude: 77.21,
+          tooltip: {
+            content: "<span style=\"font-weight:bold;\">New Delphi, India</span>"
+          },
+          attrs: {
+            opacity: 1
+          },
+          attrsHover: {
+            transform: "s1.5"
+          }
+        },
+        'Nairobi': {
+          type: "image",
+          url: "http://email-list.org/marker.png",
+          width: 12,
+          height: 40,
+          latitude: -1.36,
+          longitude: 36.83,
+          tooltip: {
+            content: "<span style=\"font-weight:bold;\">Nairobi, Kenya</span>"
+          },
+          attrs: {
+            opacity: 1
+          },
+          attrsHover: {
+            transform: "s1.5"
+          }
+        },
+        'Tbilisi': {
+          type: "image",
+          url: "http://email-list.org/marker.png",
+          width: 12,
+          height: 40,
+          latitude: 41.71,
+          longitude: 44.78,
+          tooltip: {
+            content: "<span style=\"font-weight:bold;\">Tbilisi, Georgia</span>"
+          },
+          attrs: {
+            opacity: 1
+          },
+          attrsHover: {
+            transform: "s1.5"
+          }
+        },
+        'Dubai': {
+          type: "image",
+          url: "http://email-list.org/marker.png",
+          width: 12,
+          height: 40,
+          latitude: 25.27,
+          longitude: 55.29,
+          tooltip: {
+            content: "<span style=\"font-weight:bold;\">Dubai, United Arab Emirates</span>"
+          },
+          attrs: {
+            opacity: 1
+          },
+          attrsHover: {
+            transform: "s1.5"
+          }
+        }
+      }
+
+    });
+    },
+    changeSVG: function(){
+      if ($(window).width() >= 768) {
+        $('.map').find('svg')[0].setAttribute("height", "500");
+        $('.map').find('svg')[0].setAttribute("preserveAspectRatio", "none");
+        $('.map').find('svg')[0].setAttribute("viewBox", "400 0 600 360");
+      }
     }
   },
   mounted () {
     this.fillCharts();
+    this.fillMap();
+    this.changeSVG();
   }
 }
 </script>

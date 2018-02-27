@@ -7,7 +7,7 @@
         <div class="row">
           <div class="col-sm-7 sm-margin-b-50">
             <!-- List -->
-<!--             <ul class="list-unstyled footer-list">
+             <!--<ul class="list-unstyled footer-list">
               <li class="footer-list-item"><a class="footer-list-link" href="#">Phone </a></li>
               <li class="footer-list-item"><a class="footer-list-link" href="#">Email info@dmm.solutions</a></li>
               <li class="footer-list-item"><a class="footer-list-link" href="#">Skype</a></li>
@@ -41,8 +41,6 @@
                 <p>DMM Solutions</p>
               </div>
             </div>
-
-
           </div>
           <div class="col-sm-5 sm-margin-b-30">
             <h2 class="color-white">Send Us A Note</h2>
@@ -71,19 +69,19 @@
       <!-- End Copyright -->
     </footer>
     <!--========== END FOOTER ==========-->
-  </template>
+</template>
 
-  <script>
-  import CreateLead from './CreateLead'
+<script>
+import CreateLead from './CreateLead'
 
-  export default {
-    name: 'Footer',
-    components: {
-      'dmm-create-lead': CreateLead
-    }
+export default {
+  name: 'Footer',
+  components: {
+    'dmm-create-lead': CreateLead
   }
-  </script>
+}
+</script>
 
   <!-- Add "scoped" attribute to limit CSS to this component only -->
-  <style>
-  </style>
+<style>
+</style>
