@@ -20,9 +20,9 @@
     </div>
     <div class="sidebar-wrapper">
       <div class="user">
-<!--         <div class="photo">
-          <img src="../assets/img-material/faces/avatar.jpg" />
-        </div> -->
+        <div class="photo">
+          <img src="../assets/img-material/default-avatar.png" />
+        </div>
         <div class="info">
           <a data-toggle="collapse" href="#collapseExample" class="collapsed">
             Hi, Admin
@@ -203,12 +203,12 @@
         <div class="main-panel">
           <nav class="navbar navbar-transparent navbar-absolute">
             <div class="container-fluid">
-<!--               <div class="navbar-minimize">
+              <div class="navbar-minimize">
                 <button id="minimizeSidebar" class="btn btn-round btn-white btn-fill btn-just-icon">
                   <i class="material-icons visible-on-sidebar-regular">more_vert</i>
                   <i class="material-icons visible-on-sidebar-mini">view_list</i>
                 </button>
-              </div> -->
+              </div>
 <!--               <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse">
                   <span class="sr-only">Toggle navigation</span>
@@ -364,10 +364,19 @@ import VueSession from 'vue-session'
 import VueResource from 'vue-resource'
 import { mapGetters } from 'vuex'
 import VueMaterial from 'vue-material'
+// // import PerfectScrollbar from 'perfect-scrollbar'
+
+import Bootstrap from '../assets/vendor/material/bootstrap.min.js';
+import PerfectScrollBar from '../assets/vendor/material/perfect-scrollbar.jquery.min.js';
+import Tagsinput from '../assets/vendor/material/jquery.tagsinput.js';
+import Material from '../assets/vendor/material/material.min.js';
+import MaterialDashboard from '../assets/vendor/material/material-dashboard.js';
 
 Vue.use(VueResource)
 Vue.use(VueSession)
 Vue.use(VueMaterial)
+// Vue.use(PerfectScrollbar)
+
 
 export default {
   name: 'Dashboard',
@@ -387,7 +396,9 @@ export default {
     }
   },
   beforeMount () {
-    this.$store.dispatch('getLeads', this.$session.get('Token'))
+    if (this.$session.exists()) {
+      this.$store.dispatch('getLeads', this.$session.get('Token'))
+    }
   }
 }
 </script>

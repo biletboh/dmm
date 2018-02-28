@@ -11,7 +11,7 @@
     <img src="../assets/img/loading.gif" class="img-responsive center-block" alt="loading">
   </div>
     <div class="row">
-      <div v-for="(choice, index) in briefOptions[position]['choices']" :key="index" class="col-sm-6 sm-margin-b-2">
+      <div v-for="(choice, index) in briefOptions[position]['choices']" :key="index" class="col-sm-6 sm-margin-b-2 option wow fadeInLeft" data-wow-duration=".3" data-wow-delay=".3s">
         <div class="service" data-height="height" @click="nextQuestion(), saveBriefData(choice.value)" :id="choice.label">
           <div class="service-info">
             <h3>{{ choice.display_name }} </h3>
@@ -79,3 +79,8 @@ export default {
   }
 }
 </script>
+<style scoped>
+  .option{
+    padding: 1px;
+  }
+</style>

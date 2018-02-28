@@ -2,9 +2,9 @@
   <div class="content-lg container">
     <div id="for_script"></div>
     <div class="row margin-b-40">
-      <div class="col-lg-12">
+      <div class="col-lg-12 title-achievements">
         <h2 class="text-center">Our achievements</h2>
-        <p>Over the years, we have successfully taken the leading positions in the field of our key directions</p>
+        <p class="text-center">Over the years, we have successfully taken the leading positions in the field of our key directions</p>
       </div>
       <div class="col-lg-9">
         <div class="mapСontainer">
@@ -253,5 +253,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+.title-achievements{
+  margin-bottom: 30px;
+}
 </style>
