@@ -1,6 +1,6 @@
 <template>
 
-  <body>
+<!--   <body> -->
     <div class="wrapper">
       <div class="sidebar" data-active-color="blue" data-background-color="black" data-image="../assets/img-material/sidebar-1.jpg">
             <!--
@@ -209,15 +209,15 @@
                   <i class="material-icons visible-on-sidebar-mini">view_list</i>
                 </button>
               </div>
-<!--               <div class="navbar-header">
+              <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse">
                   <span class="sr-only">Toggle navigation</span>
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#"> Extended Tables </a>
-              </div> -->
+<!--                 <a class="navbar-brand" href="#"> Extended Tables </a> -->
+              </div>
               <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
 <!--                   <li>
@@ -254,12 +254,12 @@
                     </ul>
                   </li> -->
                   <li>
-                    <router-link to="/"   class="btn btn-white btn-round"  >
+                    <router-link to="/"   class="btn btn-info btn-round" data-background-color="blue"  >
                       Home
                     </router-link>
                   </li>
                   <li>
-                    <a  class="btn btn-white btn-round" @click="logout" >
+                    <a  class="btn btn-info btn-round" @click="logout" >
                       Logout
                     </a>
                   </li>
@@ -354,7 +354,7 @@
   </footer> -->
 </div>
 </div>
-</body>
+<!-- </body> -->
 </template>
 
 <script>
@@ -363,20 +363,17 @@ import Vue from 'vue'
 import VueSession from 'vue-session'
 import VueResource from 'vue-resource'
 import { mapGetters } from 'vuex'
-import VueMaterial from 'vue-material'
-// // import PerfectScrollbar from 'perfect-scrollbar'
+
 
 import Bootstrap from '../assets/vendor/material/bootstrap.min.js';
-import PerfectScrollBar from '../assets/vendor/material/perfect-scrollbar.jquery.min.js';
+// import PerfectScrollBar from '../assets/vendor/material/perfect-scrollbar.jquery.min.js';
 import Tagsinput from '../assets/vendor/material/jquery.tagsinput.js';
 import Material from '../assets/vendor/material/material.min.js';
 import MaterialDashboard from '../assets/vendor/material/material-dashboard.js';
 
+
 Vue.use(VueResource)
 Vue.use(VueSession)
-Vue.use(VueMaterial)
-// Vue.use(PerfectScrollbar)
-
 
 export default {
   name: 'Dashboard',

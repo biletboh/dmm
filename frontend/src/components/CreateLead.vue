@@ -78,15 +78,18 @@ export default {
       event.preventDefault()
 
       this.createLead()
-      this.$router.push('/thanks')
 
-      // this.name = ''
-      // this.email = ''
-      // this.phone = ''
-      // this.message = ''
     },
     createLead () {
       this.$store.dispatch('createLead', { name: this.name, email: this.email, phone: this.phone, message: this.message })
+      .then(resp =>{
+        this.$router.push('/thanks')
+           // console.log('resp ' + resp)
+      })
+      .catch( err => {
+        this.$router.push('/error')
+          // console.log('err ' + err)
+        })
     },
     checkPlusNumber(phone_number) {
       let plus_regex = new RegExp('^[\+]')

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import Vue from 'vue'
 import Vuex from 'vuex'
 import { Lead } from '../api/leads'
@@ -47,8 +48,19 @@ const mutations = {
 // Actions
 const actions = {
   createLead ({ commit }, leadData) {
-    Lead.create(leadData).then(lead => {
-      commit(ADD_LEAD, lead)
+    return new Promise((resolve, reject)=>{
+      Lead.create(leadData)
+      .then(
+        lead => {
+        commit(ADD_LEAD, lead)
+        // console.log('resolved success')
+        resolve(lead)
+      })
+      .catch(
+        err => {
+        // console.log('resolved error')
+        reject(err.message)
+      })
     })
   },
   getLeads ({ commit }, token) {

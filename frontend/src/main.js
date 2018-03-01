@@ -8,7 +8,6 @@ import store from './store'
 import router from './router'
 import 'swiper'
 
-
 require('jquery-ui')
 require('./assets/vendor/simple-line-icons/simple-line-icons.min.css')
 require('./assets/vendor/bootstrap/css/bootstrap.min.css')
