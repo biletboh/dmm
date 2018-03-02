@@ -63,15 +63,10 @@ class LeadBriefSerializer(serializers.ModelSerializer):
 class LeadSerializer(serializers.ModelSerializer):
     """Serialize lead's data."""
 
-    brief = LeadBriefSerializer()
+    brief = LeadBriefSerializer(read_only=True)
 
     class Meta:
         model = Lead
         fields = ('email', 'name', 'phone', 'message', 'date', 'brief')
         read_only_fields = ('date', 'brief')
         extra_kwargs = {'date': {'format': '%Y-%m-%d %H:%M'}}
-
-    def to_representation(self, instance):
-        ret = super().to_representation(instance)
-        # print(ret)
-        return ret
