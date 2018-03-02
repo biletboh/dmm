@@ -59,7 +59,6 @@ export default {
     },
     userLogin () {
       User.login( { username: this.login, password: this.password } ).then( response => {
-        console.log(response)
         if (response.status === 200) {
           this.$session.start();
           this.$session.set('Token', response.data.token);

@@ -51,14 +51,14 @@
           </div>
           <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
-              <li>
+<!--               <li>
                 <router-link to="/"   class="btn btn-info btn-round" data-background-color="blue"  >
                   Home
                 </router-link>
-              </li>
+              </li> -->
               <li>
-                <a  class="btn btn-info btn-round" @click="logout" >
-                  Logout
+                <a  class="btn btn-round btn-info btn-fill btn-just-icon" @click="logout" >
+                  <i class="material-icons">power_settings_new</i>
                 </a>
               </li>
               <li class="separator hidden-lg hidden-md"></li>
@@ -74,7 +74,7 @@
                 <div class="card-header card-header-icon" data-background-color="blue">
                   <i class="material-icons">assignment</i>
                 </div>
-                <h4 class="card-title">Leads</h4>
+                <br><br>
                 <div class="card-content">
                   <div class="table-responsive">
                     <table class="table table-striped">
@@ -91,58 +91,73 @@
                       </thead>
                       <tbody>
                         <tr
-                           v-for="lead in leads"
-                           :key="lead.id"
-                           >
-                           <td>{{ lead.name }}</td>
-                           <td>{{ lead.email }}</td>
-                           <td>{{ lead.phone }}</td>
-                           <td>{{ lead.date }}</td>
-                           <td>{{ lead.message }}</td>
-                           <td>{{ lead.comment }}</td>
-                           <td v-if="lead.brief">
-                             <button
-                               v-on:click="showModal(lead)"
-                               class="btn btn-success btn-round btn-sm"
-                               >
-                               Brief
-                             </button>
-                           </td>
-                           <td v-else>
-                             <span class="btn btn-warning btn-round btn-sm disabled">No Brief</span>
-                           </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+                        v-for="lead in leads"
+                        :key="lead.id"
+                        >
+                        <td>{{ lead.name }}</td>
+                        <td>{{ lead.email }}</td>
+                        <td>{{ lead.phone }}</td>
+                        <td>{{ lead.date }}</td>
+                        <td>{{ lead.message }}</td>
+                        <td>{{ lead.comment }}</td>
+                        <td v-if="lead.brief">
+                         <button
+                         v-on:click="showModal(lead)"
+                         class="btn btn-success btn-round btn-sm"
+                         >
+                         Brief
+                       </button>
+                     </td>
+                     <td v-else>
+                       <span class="btn btn-defaut btn-round btn-sm disabled">No Brief</span>
+                     </td>
+                   </tr>
+                 </tbody>
+               </table>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+</div>
+<modal name="hello-world" height="auto" :pivotX="0.9" width="50%">
+  <div class="modal-header">
+    <div class="row">
+      <div class="col-md-10">
+        <h5>
+          {{ modalLead.name }}<br>
+          {{ modalLead.email }}<br>
+        {{ modalLead.phone }}</h5>
+      </div>
+      <div class="col-md-2">
+        <p class="text-right">
+            <i @click="$modal.hide('hello-world')" id="close-btn" class="material-icons">close</i>
+        </p>
       </div>
     </div>
-    <modal name="hello-world" height="auto" :pivotX="0.9">
-    <div class="modal-header">
-      <h3>Brief Answers</h3>
-    </div>
-    <div class="modal-body">
-      <ul class="list-unstyled">
-        <li
-          v-for="(answer, label) in modalLead.brief"
-          :key="label"
-          >
-          <p><span class="modal-label">{{ label | capitalize }}:</span> {{ answer }}</p>
-        </li>
-      </ul>
-    </div>
-    <div
-                   class="modal-footer"
-                   >
-                   <h3><small>{{ modalLead.name }} <span class="muted">{{ modalLead.email }} {{ modalLead.phone }}</span></small></h3>
-    </div>
-    </modal>
   </div>
+  <div class="modal-body">
+    <div class="row" v-for="(answer, label) in modalLead.brief" :key="label">
+      <div class="col-md-2"><span class="modal-label">{{ label | capitalize }}</span></div>
+      <div class="col-md-10"><p class="answer">{{ answer }}</p></div>
+
+    </div>
+<!--     <ul class="list-unstyled">
+      <li
+      v-for="(answer, label) in modalLead.brief"
+      :key="label"
+      >
+      <p><span class="modal-label">{{ label | capitalize }}:</span> {{ answer }}</p>
+    </li>
+  </ul> -->
+</div>
+<!-- <div  class="modal-footer" >
+ <h3><small>{{ modalLead.name }} <span class="muted">{{ modalLead.email }} {{ modalLead.phone }}</span></small></h3>
+</div> -->
+</modal>
+</div>
 </template>
 
 <script>
@@ -153,7 +168,7 @@ import VueResource from 'vue-resource'
 import { mapGetters } from 'vuex'
 import VModal from 'vue-js-modal'
 import Vue2Filters from 'vue2-filters'
- 
+
 Vue.use(VueResource)
 Vue.use(VueSession)
 Vue.use(VModal)
@@ -205,6 +220,9 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 @import url(../assets/css/material-dashboard.css);
+.sidebar-mini .wrapper{
+  height: 100vh !important;
+}
 .main-panel {
   overflow: auto;
 }
@@ -222,5 +240,21 @@ export default {
 }
 .wrapper {
   background: #EEEEEE;
+}
+td{
+  font-weight: 200;
+  padding: 0 !important;
+}
+.answer{
+  color: #515769;
+}
+h5{
+  font-weight: 600;
+  line-height: 30px;
+  margin-bottom: 0;
+}
+#close-btn{
+  cursor: pointer;
+  font-size: 30px;
 }
 </style>

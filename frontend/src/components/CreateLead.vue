@@ -84,11 +84,9 @@ export default {
       this.$store.dispatch('createLead', { name: this.name, email: this.email, phone: this.phone, message: this.message })
       .then(resp =>{
         this.$router.push('/thanks')
-           // console.log('resp ' + resp)
       })
       .catch( err => {
         this.$router.push('/error')
-          // console.log('err ' + err)
         })
     },
     checkPlusNumber(phone_number) {
