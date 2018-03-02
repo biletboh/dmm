@@ -142,6 +142,7 @@ label {
 .lc {
   padding-top: 10px;
   padding-bottom: 20px;
+  padding-left: 30px;
 }
 
 
@@ -177,8 +178,14 @@ label {
 
 .service:hover {
   background-color: #63cbd7;
-  transition: background 1s linear;
+  transition: background 0.5s linear;
   cursor: pointer;
+  color: #fff;
+}
+
+.service:hover  h3 {
+  transition: background 0.5s linear;
+  color: #fff;
 }
 
 .service-info h3 {

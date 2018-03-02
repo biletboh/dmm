@@ -1,104 +1,119 @@
 <template>
-  <body>
-    <div class="wrapper">
-      <div class="sidebar" data-active-color="blue" data-background-color="black" data-image="../assets/img-material/sidebar-1.jpg">
-        <div class="logo">
-          <a class="simple-text">
-            DMM SOLUTIONS
-          </a>
-        </div>
-        <div class="logo logo-mini">
-          <a class="simple-text">
-            DMM
-          </a>
-        </div>
-        <div class="sidebar-wrapper">
-          <div class="user">
-            <div class="info">
-              <a data-toggle="collapse" href="#collapseExample" class="collapsed">
-                Hi, Admin
-              </a>
-            </div>
-          </div>
-          <ul class="nav">
-            <li>
-              <a href="#">
-                <i class="material-icons">dashboard</i>
-                <p>Leads</p>
-              </a>
-            </li>
-          </ul>
-        </div>
+  <div class="wrapper">
+    <div class="sidebar" data-active-color="blue" data-background-color="black" data-image="../assets/img-material/sidebar-1.jpg">
+      <div class="logo">
+        <a class="simple-text">
+          DMM SOLUTIONS
+        </a>
       </div>
-      <div class="main-panel">
-        <nav class="navbar navbar-transparent navbar-absolute">
-          <div class="container-fluid">
-            <div class="collapse navbar-collapse">
-              <ul class="nav navbar-nav navbar-right">
-                <li>
-                  <router-link to="/"   class="btn btn-white btn-round"  >
-                    Home
-                  </router-link>
-                </li>
-                <li>
-                  <a  class="btn btn-white btn-round" @click="logout" >
-                    Logout
-                  </a>
-                </li>
-                <li class="separator hidden-lg hidden-md"></li>
-              </ul>
-            </div>
+      <div class="logo logo-mini">
+        <a class="simple-text">
+          DMM
+        </a>
+      </div>
+      <div class="sidebar-wrapper">
+        <div class="user">
+          <div class="photo">
+            <img src="../assets/img-material/default-avatar.png" />
           </div>
-        </nav>
-        <div class="content">
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col-md-12">
-                <div class="card">
-                  <div class="card-header card-header-icon" data-background-color="blue">
-                    <i class="material-icons">assignment</i>
-                  </div>
-                  <h4 class="card-title">Leads</h4>
-                  <div class="card-content">
-                    <div class="table-responsive">
-                      <table class="table table-striped">
-                        <thead>
-                          <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Phone</th>
-                            <th>Date</th>
-                            <th>Message</th>
-                            <th>Comment</th>
-                            <th>Brief</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr
-                             v-for="lead in leads"
-                             :key="lead.id"
-                             >
-                             <td>{{ lead.name }}</td>
-                             <td>{{ lead.email }}</td>
-                             <td>{{ lead.phone }}</td>
-                             <td>{{ lead.date }}</td>
-                             <td>{{ lead.message }}</td>
-                             <td>{{ lead.comment }}</td>
-                             <td v-if="lead.brief">
-                               <button
-                                 v-on:click="showModal(lead)"
-                                 class="btn btn-success btn-round btn-sm"
-                                >
-                                Brief
-                               </button>
-                             </td>
-                             <td v-else>
-                               <span class="btn btn-warning btn-round btn-sm disabled">No Brief</span>
-                             </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
+          <div class="info">
+            <a data-toggle="collapse" href="#collapseExample" class="collapsed">
+              Hi, Admin
+            </a>
+          </div>
+        </div>
+        <ul class="nav">
+          <li>
+            <a href="#">
+              <i class="material-icons">dashboard</i>
+              <p>Leads</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+      <nav class="navbar navbar-transparent navbar-absolute">
+        <div class="container-fluid">
+          <div class="navbar-minimize">
+            <button id="minimizeSidebar" class="btn btn-round btn-white btn-fill btn-just-icon">
+              <i class="material-icons visible-on-sidebar-regular">more_vert</i>
+              <i class="material-icons visible-on-sidebar-mini">view_list</i>
+            </button>
+          </div>
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                <router-link to="/"   class="btn btn-info btn-round" data-background-color="blue"  >
+                  Home
+                </router-link>
+              </li>
+              <li>
+                <a  class="btn btn-info btn-round" @click="logout" >
+                  Logout
+                </a>
+              </li>
+              <li class="separator hidden-lg hidden-md"></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-icon" data-background-color="blue">
+                  <i class="material-icons">assignment</i>
+                </div>
+                <h4 class="card-title">Leads</h4>
+                <div class="card-content">
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>Name</th>
+                          <th>Email</th>
+                          <th>Phone</th>
+                          <th>Date</th>
+                          <th>Message</th>
+                          <th>Comment</th>
+                          <th>Brief</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr
+                           v-for="lead in leads"
+                           :key="lead.id"
+                           >
+                           <td>{{ lead.name }}</td>
+                           <td>{{ lead.email }}</td>
+                           <td>{{ lead.phone }}</td>
+                           <td>{{ lead.date }}</td>
+                           <td>{{ lead.message }}</td>
+                           <td>{{ lead.comment }}</td>
+                           <td v-if="lead.brief">
+                             <button
+                               v-on:click="showModal(lead)"
+                               class="btn btn-success btn-round btn-sm"
+                               >
+                               Brief
+                             </button>
+                           </td>
+                           <td v-else>
+                             <span class="btn btn-warning btn-round btn-sm disabled">No Brief</span>
+                           </td>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div>
                 </div>
               </div>
@@ -122,12 +137,12 @@
       </ul>
     </div>
     <div
-      class="modal-footer"
-    >
-      <h3><small>{{ modalLead.name }} <span class="muted">{{ modalLead.email }} {{ modalLead.phone }}</span></small></h3>
+                   class="modal-footer"
+                   >
+                   <h3><small>{{ modalLead.name }} <span class="muted">{{ modalLead.email }} {{ modalLead.phone }}</span></small></h3>
     </div>
     </modal>
-  </body>
+  </div>
 </template>
 
 <script>
@@ -136,15 +151,19 @@ import Vue from 'vue'
 import VueSession from 'vue-session'
 import VueResource from 'vue-resource'
 import { mapGetters } from 'vuex'
-import VueMaterial from 'vue-material'
 import VModal from 'vue-js-modal'
 import Vue2Filters from 'vue2-filters'
  
 Vue.use(VueResource)
 Vue.use(VueSession)
-Vue.use(VueMaterial)
 Vue.use(VModal)
 Vue.use(Vue2Filters)
+
+import Bootstrap from '../assets/vendor/material/bootstrap.min.js';
+// import PerfectScrollBar from '../assets/vendor/material/perfect-scrollbar.jquery.min.js';
+import Tagsinput from '../assets/vendor/material/jquery.tagsinput.js';
+import Material from '../assets/vendor/material/material.min.js';
+import MaterialDashboard from '../assets/vendor/material/material-dashboard.js';
 
 export default {
   name: 'Dashboard',
@@ -176,7 +195,9 @@ export default {
     }
   },
   beforeMount () {
-    this.$store.dispatch('getLeads', this.$session.get('Token'))
+    if (this.$session.exists()) {
+      this.$store.dispatch('getLeads', this.$session.get('Token'))
+    }
   }
 }
 </script>
@@ -198,5 +219,8 @@ export default {
 }
 .label {
   font-size: 11px;
+}
+.wrapper {
+  background: #EEEEEE;
 }
 </style>

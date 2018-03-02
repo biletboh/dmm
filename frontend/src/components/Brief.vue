@@ -99,7 +99,7 @@ export default {
 
 <style scoped>
 .parallax-img{
-  top: -60%;
+  top: -70%;
 }
 .lead-form >>> input,
 .lead-form >>> textarea {

@@ -1,3 +1,4 @@
+/* eslint-disable */
 /*
  * bootstrap-tagsinput v0.8.0
  *

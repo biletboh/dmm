@@ -1,3 +1,4 @@
+/* eslint-disable */
 /*! =========================================================
  *
  * Material Dashboard PRO - V1.1.0
@@ -32,18 +33,18 @@
  *
  * ========================================================= */
 
- (function(){
-     isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
+ // (function(){
+ //     isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
 
-     if (isWindows && !$('body').hasClass('sidebar-mini')){
-        // if we are on windows OS we activate the perfectScrollbar function
-        $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
+ //     if (isWindows && !$('body').hasClass('sidebar-mini')){
+ //        // if we are on windows OS we activate the perfectScrollbar function
+ //        $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
 
-        $('html').addClass('perfect-scrollbar-on');
-    } else {
-        $('html').addClass('perfect-scrollbar-off');
-    }
- })();
+ //        $('html').addClass('perfect-scrollbar-on');
+ //    } else {
+ //        $('html').addClass('perfect-scrollbar-off');
+ //    }
+ // })();
 
 var breakCards = true;
 
@@ -81,6 +82,7 @@ $(document).ready(function(){
 
     // check if there is an image set for the sidebar's background
     md.checkSidebarImage();
+
 
     md.initMinimizeSidebar();
 
@@ -213,16 +215,16 @@ md = {
             }
         });
 
-        $('#minimizeSidebar').click(function(){
+        $('body').on('click', '#minimizeSidebar', function(){
             var $btn = $(this);
 
             if(md.misc.sidebar_mini_active == true){
                 $('body').removeClass('sidebar-mini');
                 md.misc.sidebar_mini_active = false;
 
-                if(isWindows){
-                    $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
-                }
+                // if(isWindows){
+                //     $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
+                // }
 
             }else{
 
@@ -230,9 +232,9 @@ md = {
                     $(this).css('height','auto');
                 });
 
-                if(isWindows){
-                    $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
-                }
+                // if(isWindows){
+                //     $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
+                // }
 
                 setTimeout(function(){
                     $('body').addClass('sidebar-mini');
@@ -252,6 +254,46 @@ md = {
                 clearInterval(simulateWindowResize);
             },1000);
         });
+
+        // $('#minimizeSidebar').click(function(){
+        //     var $btn = $(this);
+
+        //     if(md.misc.sidebar_mini_active == true){
+        //         $('body').removeClass('sidebar-mini');
+        //         md.misc.sidebar_mini_active = false;
+
+        //         // if(isWindows){
+        //         //     $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
+        //         // }
+
+        //     }else{
+
+        //         $('.sidebar .collapse').collapse('hide').on('hidden.bs.collapse',function(){
+        //             $(this).css('height','auto');
+        //         });
+
+        //         // if(isWindows){
+        //         //     $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
+        //         // }
+
+        //         setTimeout(function(){
+        //             $('body').addClass('sidebar-mini');
+
+        //             $('.sidebar .collapse').css('height','auto');
+        //             md.misc.sidebar_mini_active = true;
+        //         },300);
+        //     }
+
+        //     // we simulate the window Resize so the charts will get updated in realtime.
+        //     var simulateWindowResize = setInterval(function(){
+        //         window.dispatchEvent(new Event('resize'));
+        //     },180);
+
+        //     // we stop the simulation of Window Resize after the animations are completed
+        //     setTimeout(function(){
+        //         clearInterval(simulateWindowResize);
+        //     },1000);
+        // });
     },
 
     checkScrollForTransparentNavbar: debounce(function() {
@@ -317,9 +359,8 @@ md = {
         if(!toggle_initialized){
             $toggle = $('.navbar-toggle');
 
-            $toggle.click(function (){
-
-                if(mobile_menu_visible == 1) {
+            $('body').on('click', $toggle, function(){
+                                if(mobile_menu_visible == 1) {
                     $('html').removeClass('nav-open');
 
                     $('.close-layer').remove();
@@ -362,6 +403,51 @@ md = {
                 }
             });
 
+            // $toggle.click(function (){
+
+            //     if(mobile_menu_visible == 1) {
+            //         $('html').removeClass('nav-open');
+
+            //         $('.close-layer').remove();
+            //         setTimeout(function(){
+            //             $toggle.removeClass('toggled');
+            //         }, 400);
+
+            //         mobile_menu_visible = 0;
+            //     } else {
+            //         setTimeout(function(){
+            //             $toggle.addClass('toggled');
+            //         }, 430);
+
+
+            //         main_panel_height = $('.main-panel')[0].scrollHeight;
+            //         $layer = $('<div class="close-layer"></div>');
+            //         $layer.css('height',main_panel_height + 'px');
+            //         $layer.appendTo(".main-panel");
+
+            //         setTimeout(function(){
+            //             $layer.addClass('visible');
+            //         }, 100);
+
+            //         $layer.click(function() {
+            //             $('html').removeClass('nav-open');
+            //             mobile_menu_visible = 0;
+
+            //             $layer.removeClass('visible');
+
+            //              setTimeout(function(){
+            //                 $layer.remove();
+            //                 $toggle.removeClass('toggled');
+
+            //              }, 400);
+            //         });
+
+            //         $('html').addClass('nav-open');
+            //         mobile_menu_visible = 1;
+
+            //     }
+            // });
+
             toggle_initialized = true;
         }
     }, 200),
@@ -395,7 +481,9 @@ md = {
             $navbar.find('button').removeClass('btn-round btn-fill btn-info btn-primary btn-success btn-danger btn-warning btn-neutral');
             $navbar.find('button').addClass('btn-simple btn-block');
 
-            $toggle.click(function (){
+
+
+            $('body').on('click', $toggle, function (){
                 if(mobile_menu_visible == 1) {
                     $('html').removeClass('nav-open');
 
@@ -437,6 +525,49 @@ md = {
                 }
 
             });
+
+            // $toggle.click(function (){
+            //     if(mobile_menu_visible == 1) {
+            //         $('html').removeClass('nav-open');
+
+            //         $('.close-layer').remove();
+            //         setTimeout(function(){
+            //             $toggle.removeClass('toggled');
+            //         }, 400);
+
+            //         mobile_menu_visible = 0;
+            //     } else {
+            //         setTimeout(function(){
+            //             $toggle.addClass('toggled');
+            //         }, 430);
+
+            //         $layer = $('<div class="close-layer"></div>');
+            //         $layer.appendTo(".wrapper-full-page");
+
+            //         setTimeout(function(){
+            //             $layer.addClass('visible');
+            //         }, 100);
+
+
+            //         $layer.click(function() {
+            //             $('html').removeClass('nav-open');
+            //             mobile_menu_visible = 0;
+
+            //             $layer.removeClass('visible');
+
+            //              setTimeout(function(){
+            //                 $layer.remove();
+            //                 $toggle.removeClass('toggled');
+
+            //              }, 400);
+            //         });
+
+            //         $('html').addClass('nav-open');
+            //         mobile_menu_visible = 1;
+
+            //     }
+
+            // });
             bootstrap_nav_initialized = true;
         }
     }, 500),
