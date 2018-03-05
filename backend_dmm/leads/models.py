@@ -6,15 +6,24 @@ from django.utils import timezone
 from phonenumber_field.modelfields import PhoneNumberField
 
 
-class Lead(models.Model):
-    """Collect data about a lead."""
+class AbstractMessage(models.Model):
+    """Collect basic data from a lead."""
 
-    email = models.EmailField(max_length=120, unique=True)
     name = models.CharField(max_length=50, blank=True)
     phone = PhoneNumberField()
     message = models.CharField(max_length=1000, blank=True)
-    comment = models.CharField(max_length=500, blank=True)
     date = models.DateTimeField(default=timezone.now)
+
+    class Meta:
+        abstract = True
+        ordering = ('-date',)
+
+
+class Lead(AbstractMessage):
+    """Collect data about a lead."""
+
+    email = models.EmailField(max_length=120, unique=True)
+    comment = models.CharField(max_length=500, blank=True)
 
     def __str__(self):
         return self.email
@@ -22,7 +31,21 @@ class Lead(models.Model):
     class Meta:
         verbose_name = 'lead'
         verbose_name_plural = 'leads'
-        ordering = ('-date',)
+
+
+class Message(AbstractMessage):
+    """Collect message data from a lead."""
+
+    lead = models.ForeignKey(Lead, on_delete=models.CASCADE,
+                             related_name='messages',
+                             to_field='email')
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'lead'
+        verbose_name_plural = 'leads'
 
 
 class Brief(models.Model):

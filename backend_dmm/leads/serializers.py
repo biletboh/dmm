@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Brief, Lead
+from .models import Brief, Lead, Message
 
 
 class BriefSerializer(serializers.ModelSerializer):
@@ -67,6 +67,25 @@ class LeadSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Lead
-        fields = ('email', 'name', 'phone', 'message', 'date', 'brief')
-        read_only_fields = ('date', 'brief')
-        extra_kwargs = {'date': {'format': '%Y-%m-%d %H:%M'}}
+        fields = ('email', 'name', 'phone', 'message', 'date', 'brief',
+                  'messages')
+        read_only_fields = ('date', 'brief', 'messages')
+        extra_kwargs = {
+                    'date': {'format': '%Y-%m-%d %H:%M'},
+                    'email': {'validators': []},
+                    'messages__date': {'format': '%Y-%m-%d %H:%M'}
+                    }
+        depth = 1
+
+    def validate(self, data):
+        """Check if lead's email exists."""
+
+        if Lead.objects.filter(email=data['email']).exists():
+            lead = Lead.objects.get(email=data['email'])
+            Message.objects.create(
+                        lead=lead, name=data['name'],
+                        phone=data['phone'], message=data['message'])
+            msg = ('The lead already exists. '
+                   + 'Added a new message from the lead.')
+            raise serializers.ValidationError({'New message': msg})
+        return data
