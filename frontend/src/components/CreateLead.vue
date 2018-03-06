@@ -34,6 +34,7 @@
 
 import Vue from 'vue'
 import VeeValidate from 'vee-validate'
+import { mapGetters } from 'vuex'
 
 var PhoneNumber = require('awesome-phonenumber')
 
@@ -69,7 +70,10 @@ export default {
   computed: {
     isFormComplete () {
       return this.name && this.phone && this.email && this.message;
-    }
+    },
+    ...mapGetters({
+      briefData: 'briefData'
+    }),
   },
   methods: {
     submitForm (event) {
@@ -83,11 +87,24 @@ export default {
     createLead () {
       this.$store.dispatch('createLead', { name: this.name, email: this.email, phone: this.phone, message: this.message })
       .then(resp =>{
+
+        if(Object.keys(this.$store.state.briefData).length > 0){
+          this.$store.state.briefData['lead'] = this.email
+          this.$store.dispatch('createBrief', this.briefData)
+        } 
+
         this.$router.push('/thanks')
       })
       .catch( err => {
-        this.$router.push('/error')
-        })
+
+        if(err.response ){
+          console.log(err.response.data['New message'][0])
+          this.$router.push('/thanks')
+        } else{
+          console.log(err.message)
+          this.$router.push('/error')
+        }
+      })
     },
     checkPlusNumber(phone_number) {
       let plus_regex = new RegExp('^[\+]')

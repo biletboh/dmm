@@ -53,13 +53,11 @@ const actions = {
       .then(
         lead => {
         commit(ADD_LEAD, lead)
-        // console.log('resolved success')
         resolve(lead)
       })
       .catch(
         err => {
-        // console.log('resolved error')
-        reject(err.message)
+        reject(err)
       })
     })
   },

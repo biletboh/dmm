@@ -221,7 +221,7 @@ export default {
 <style scoped>
 @import url(../assets/css/material-dashboard.css);
 .sidebar-mini .wrapper{
-  height: 100vh !important;
+  min-height: 100vh !important;
 }
 .main-panel {
   overflow: auto;
