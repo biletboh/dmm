@@ -87,12 +87,6 @@ export default {
     createLead () {
       this.$store.dispatch('createLead', { name: this.name, email: this.email, phone: this.phone, message: this.message })
       .then(resp =>{
-
-        if(Object.keys(this.$store.state.briefData).length > 0){
-          this.$store.state.briefData['lead'] = this.email
-          this.$store.dispatch('createBrief', this.briefData)
-        } 
-
         this.$router.push('/thanks')
       })
       .catch( err => {
@@ -105,6 +99,11 @@ export default {
           this.$router.push('/error')
         }
       })
+
+      if(Object.keys(this.$store.state.briefData).length > 0){
+        this.$store.state.briefData['lead'] = this.email
+        this.$store.dispatch('createBrief', this.briefData)
+      } 
     },
     checkPlusNumber(phone_number) {
       let plus_regex = new RegExp('^[\+]')

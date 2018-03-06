@@ -77,7 +77,7 @@
                 <br><br>
                 <div class="card-content">
                   <div class="table-responsive">
-                    <table class="table table-striped">
+                    <table class="table table-striped" >
                       <thead>
                         <tr>
                           <th>Name</th>
@@ -98,23 +98,35 @@
                         <td>{{ lead.email }}</td>
                         <td>{{ lead.phone }}</td>
                         <td>{{ lead.date }}</td>
-                        <td>{{ lead.message }}</td>
-                        <td>{{ lead.comment }}</td>
-                        <td v-if="lead.brief">
-                         <button
-                         v-on:click="showModal(lead)"
-                         class="btn btn-success btn-round btn-sm"
-                         >
-                         Brief
-                       </button>
-                     </td>
-                     <td v-else>
-                       <span class="btn btn-defaut btn-round btn-sm disabled">No Brief</span>
-                     </td>
-                   </tr>
-                 </tbody>
-               </table>
-             </div>
+                        <td >
+                         <button 
+                          v-if="lead.messages.length > 0" 
+                          v-on:click="showModalMessage(lead)" 
+                          class="btn btn-round btn-success btn-sm plus-minus-btn">
+                          <i class="material-icons">add</i>
+                        </button>
+                        <button 
+                          v-else
+                          class="btn btn-round btn-default btn-sm disabled plus-minus-btn">
+                          <i class="material-icons">add</i>
+                        </button>
+                        {{ lead.message }}
+                      </td>
+                      <td >{{ lead.comment }}</td>
+                      <td v-if="lead.brief">
+                       <button
+                       v-on:click="showModal(lead)"
+                       class="btn btn-success btn-round btn-sm"
+                       >
+                       Brief
+                     </button>
+                   </td>
+                   <td v-else>
+                     <span class="btn btn-defaut btn-round btn-sm disabled">No Brief</span>
+                   </td>
+                 </tr>
+               </tbody>
+             </table>
            </div>
          </div>
        </div>
@@ -122,7 +134,8 @@
    </div>
  </div>
 </div>
-<modal name="hello-world" height="auto" :pivotX="0.9" width="50%">
+</div>
+<modal name="hello-world" height="auto" :scrollable="true" :draggable="true" width="50%">
   <div class="modal-header">
     <div class="row">
       <div class="col-md-10">
@@ -133,7 +146,7 @@
       </div>
       <div class="col-md-2">
         <p class="text-right">
-            <i @click="$modal.hide('hello-world')" id="close-btn" class="material-icons">close</i>
+          <i @click="$modal.hide('hello-world')" id="close-btn" class="material-icons">close</i>
         </p>
       </div>
     </div>
@@ -142,21 +155,34 @@
     <div class="row" v-for="(answer, label) in modalLead.brief" :key="label">
       <div class="col-md-2"><span class="modal-label">{{ label | capitalize }}</span></div>
       <div class="col-md-10"><p class="answer">{{ answer }}</p></div>
-
     </div>
-<!--     <ul class="list-unstyled">
-      <li
-      v-for="(answer, label) in modalLead.brief"
-      :key="label"
-      >
-      <p><span class="modal-label">{{ label | capitalize }}:</span> {{ answer }}</p>
-    </li>
-  </ul> -->
-</div>
-<!-- <div  class="modal-footer" >
- <h3><small>{{ modalLead.name }} <span class="muted">{{ modalLead.email }} {{ modalLead.phone }}</span></small></h3>
-</div> -->
+  </div>
 </modal>
+
+<modal name="message" height="auto" :scrollable="true" :draggable="true" width="50%">
+  <div class="modal-header">
+    <div class="row">
+      <div class="col-md-10">
+        <h5>
+          {{ modalLead.name }}<br>
+          {{ modalLead.email }}<br>
+        {{ modalLead.phone }}</h5>
+      </div>
+      <div class="col-md-2">
+        <p class="text-right">
+          <i @click="$modal.hide('message')" id="close-btn" class="material-icons">close</i>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="modal-body">
+    <div class="row" v-for="message in modalLead.messages"  :key="message.id">
+      <div class="col-md-4"><span class="modal-label">{{ message.date }}</span></div>
+      <div class="col-md-8"><p class="answer">{{ message.message }}</p></div>
+    </div>
+  </div>
+</modal>
+
 </div>
 </template>
 
@@ -184,7 +210,7 @@ export default {
   name: 'Dashboard',
   data () {
     return {
-      'modalLead': {} 
+      'modalLead': {}
     }
   },
   computed: mapGetters(['leads']),
@@ -202,6 +228,13 @@ export default {
     },
     hideModal () {
       this.$modal.hide('hello-world')
+    },
+    showModalMessage (lead) {
+      this.modalLead = lead
+      this.$modal.show('message')
+    },
+    hideModalMessage () {
+      this.$modal.hide('message')
     }
   },
   beforeCreate: function () {
@@ -257,4 +290,11 @@ h5{
   cursor: pointer;
   font-size: 30px;
 }
+.plus-minus-btn{
+  padding: 5px !important;
+}
+.plus-minus-btn i {
+  top: 0 !important;
+}
+
 </style>
