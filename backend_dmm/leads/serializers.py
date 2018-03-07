@@ -60,16 +60,29 @@ class LeadBriefSerializer(serializers.ModelSerializer):
         return obj.get_payment_display()
 
 
+class MessagesSerializer(serializers.ModelSerializer):
+    """Serialize lead's data."""
+
+    class Meta:
+        model = Message
+        fields = ('id', 'name', 'phone', 'message', 'date')
+        extra_kwargs = {
+                    'date': {'format': '%Y-%m-%d %H:%M'},
+                    }
+        depth = 1
+
+
 class LeadSerializer(serializers.ModelSerializer):
     """Serialize lead's data."""
 
     brief = LeadBriefSerializer(read_only=True)
+    messages = MessagesSerializer(many=True, read_only=True)
 
     class Meta:
         model = Lead
-        fields = ('email', 'name', 'phone', 'message', 'date', 'brief',
-                  'messages')
-        read_only_fields = ('date', 'brief', 'messages')
+        fields = ('email', 'name', 'phone', 'message', 'date', 'comment',
+                  'brief', 'messages')
+        read_only_fields = ('date', 'comment', 'brief', 'messages')
         extra_kwargs = {
                     'date': {'format': '%Y-%m-%d %H:%M'},
                     'email': {'validators': []},
@@ -89,3 +102,11 @@ class LeadSerializer(serializers.ModelSerializer):
                    + 'Added a new message from the lead.')
             raise serializers.ValidationError({'New message': msg})
         return data
+
+
+class CommentSerializer(serializers.ModelSerializer):
+    """Serialize lead's comment."""
+
+    class Meta:
+        model = Lead
+        fields = ('comment',)

@@ -5,7 +5,7 @@ from rest_framework.test import APITestCase
 from rest_framework import status
 
 from leads.tests.test_models import BriefSetUpMixin, LeadSetUpMixin
-from leads.models import Brief
+from leads.models import Lead
 
 
 class LeadCRUDTestCase(LeadSetUpMixin, APITestCase):
@@ -22,6 +22,17 @@ class LeadCRUDTestCase(LeadSetUpMixin, APITestCase):
         response = self.client.post(reverse('leads:list_create'),
                                     self.lead_data, format="json")
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+
+    def test_comment(self):
+        """Test the Lead creation endpoint."""
+
+        self.lead = Lead.objects.create(**self.lead_data)
+        data = {'comment': 'Call back later'}
+        self.client.force_authenticate(user=self.user)
+        response = self.client.put(
+                    reverse('leads:comment', kwargs={'pk': self.lead.pk}),
+                    data, format="json")
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_list(self):
         """Test the Lead list endpoint."""

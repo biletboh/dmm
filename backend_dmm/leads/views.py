@@ -3,7 +3,7 @@ from rest_framework.permissions import IsAuthenticated
 
 from rest_condition import Or
 
-from .serializers import LeadSerializer, BriefSerializer
+from .serializers import LeadSerializer, BriefSerializer, CommentSerializer
 from .models import Brief, Lead
 from .permissions import IsPostRequest, IsOptionsRequest
 
@@ -14,6 +14,14 @@ class LeadListCreateView(generics.ListCreateAPIView):
     permission_classes = [Or(IsAuthenticated, IsPostRequest)]
     queryset = Lead.objects.all()
     serializer_class = LeadSerializer
+
+
+class LeadCommentView(generics.UpdateAPIView):
+    """Create a lead and display a list of leads."""
+
+    permission_classes = (IsAuthenticated,)
+    queryset = Lead.objects.all()
+    serializer_class = CommentSerializer
 
 
 class BriefListCreateView(generics.ListCreateAPIView):
