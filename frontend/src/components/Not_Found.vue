@@ -8,7 +8,6 @@
       </div>
     </div>
     <!--========== PARALLAX ==========-->
-
     <div class="content-lg container">
       <div class="row margin-b-40">
         <div class="col-sm-12">
@@ -30,7 +29,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .parallax-img{
   top: -90%;

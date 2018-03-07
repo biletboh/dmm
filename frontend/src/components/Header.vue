@@ -7,10 +7,9 @@
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="menu-container">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="toggle-icon"></span>
-                    </button>
-
+            <span class="sr-only">Toggle navigation</span>
+            <span class="toggle-icon"></span>
+          </button>
           <!-- Logo -->
           <div class="logo">
             <router-link to="/" class="logo-wrap">
@@ -20,7 +19,6 @@
           </div>
           <!-- End Logo -->
         </div>
-
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse nav-collapse">
           <div class="menu-container">
@@ -57,7 +55,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
 </style>

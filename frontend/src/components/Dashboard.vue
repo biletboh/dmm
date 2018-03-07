@@ -51,11 +51,6 @@
           </div>
           <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
-<!--               <li>
-                <router-link to="/"   class="btn btn-info btn-round" data-background-color="blue"  >
-                  Home
-                </router-link>
-              </li> -->
               <li>
                 <a  class="btn btn-round btn-info btn-fill btn-just-icon" @click="logout" >
                   <i class="material-icons">power_settings_new</i>
@@ -99,15 +94,11 @@
                         <td>{{ lead.phone }}</td>
                         <td>{{ lead.date }}</td>
                         <td >
-                         <button 
-                          v-if="lead.messages.length > 0" 
-                          v-on:click="showModalMessage(lead)" 
+                         <button v-if="lead.messages.length > 0" v-on:click="showModalMessage(lead)"
                           class="btn btn-round btn-success btn-sm plus-minus-btn">
                           <i class="material-icons">add</i>
                         </button>
-                        <button 
-                          v-else
-                          class="btn btn-round btn-default btn-sm disabled plus-minus-btn">
+                        <button v-else  class="btn btn-round btn-default btn-sm disabled plus-minus-btn">
                           <i class="material-icons">add</i>
                         </button>
                         {{ lead.message }}
@@ -158,7 +149,6 @@
     </div>
   </div>
 </modal>
-
 <modal name="message" height="auto" :scrollable="true" :draggable="true" width="50%">
   <div class="modal-header">
     <div class="row">
@@ -201,7 +191,6 @@ Vue.use(VModal)
 Vue.use(Vue2Filters)
 
 import Bootstrap from '../assets/vendor/material/bootstrap.min.js';
-// import PerfectScrollBar from '../assets/vendor/material/perfect-scrollbar.jquery.min.js';
 import Tagsinput from '../assets/vendor/material/jquery.tagsinput.js';
 import Material from '../assets/vendor/material/material.min.js';
 import MaterialDashboard from '../assets/vendor/material/material-dashboard.js';
@@ -250,7 +239,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 @import url(../assets/css/material-dashboard.css);
 .sidebar-mini .wrapper{
@@ -296,5 +284,4 @@ h5{
 .plus-minus-btn i {
   top: 0 !important;
 }
-
 </style>

@@ -8,7 +8,6 @@
       </div>
     </div>
     <!--// end row -->
-
     <div class="row">
       <!-- Latest Products -->
       <div class="col-sm-4 sm-margin-b-50 latest-product">
@@ -24,7 +23,6 @@
         </router-link>
       </div>
       <!-- End Latest Products -->
-
       <!-- Latest Products -->
       <div class="col-sm-4 sm-margin-b-50 latest-product">
         <router-link to="/product_2" >
@@ -39,7 +37,6 @@
         </router-link>
         </div>
         <!-- End Latest Products -->
-
         <!-- Latest Products -->
         <div class="col-sm-4 sm-margin-b-50 latest-product">
           <router-link to="/product_3">
@@ -66,6 +63,5 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 </style>

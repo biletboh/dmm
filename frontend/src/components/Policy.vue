@@ -1,7 +1,6 @@
 <template>
   <div class="component-wrapper">
     <!--========== PARALLAX ==========-->
-
     <div class="parallax-window" >
       <img src="../assets/img/1920x1080/01.jpg" v-parallax="0.4" class="parallax-img" alt="">
       <div class="parallax-content container">
@@ -9,7 +8,6 @@
       </div>
     </div>
     <!--========== PARALLAX ==========-->
-
     <!--========== PAGE LAYOUT ==========-->
     <!-- Our Exceptional Solutions -->
     <div class="content-lg container">
@@ -42,7 +40,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .parallax-img{
   top: -90%;

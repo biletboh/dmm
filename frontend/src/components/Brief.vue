@@ -1,5 +1,4 @@
 <template>
-
   <div class="component-wrapper">
     <!--========== PARALLAX ==========-->
     <div class="parallax-window" >
@@ -8,7 +7,6 @@
         <h1 class="carousel-title">TAKE PART IN A SHORT SURVEY!</h1>
       </div>
     </div>
-
     <!--========== BRIEF ==========-->
     <div class="bg-color-sky-light" data-auto-height="true">
       <div class="content-lg container">
@@ -33,10 +31,6 @@
             </div>
           </div>
         </div>
-<!--       <div v-if="briefIsReady" id="thank-you" class="text-center">
-        <h2>Thank you!</h2>
-        <p class="text-center">We will contact you as soon as possible.</p>
-      </div> -->
     </div>
   </div>
   <!--========== END BRIEF ==========-->
@@ -44,7 +38,6 @@
 </template>
 
 <script>
-/* eslint-disable */
 import { mapGetters } from 'vuex'
 import CreateLead from './CreateLead'
 import BriefOptions from './BriefOptions'
@@ -54,7 +47,7 @@ export default {
   data () {
     return {
       showBriefStart: true,
-      showBriefForm: false,
+      showBriefForm: false
     }
   },
   computed: {
@@ -67,6 +60,9 @@ export default {
     ...mapGetters({
       briefData: 'briefData'
     }),
+    ...mapGetters({
+      isBriefSent: 'isBriefSent'
+    }),
     showBriefCompleted () {
       if (this.briefIsReady) {
         return true
@@ -75,7 +71,7 @@ export default {
       }
     },
     briefIsReady () {
-      if(this.briefCount === 9){
+      if (this.briefCount === 9) {
         this.createBrief()
         return true
       }
@@ -84,10 +80,11 @@ export default {
   },
   methods: {
     createBrief () {
-      if (this.leads.length === 1) {
+      if (this.leads.length === 1 && this.isBriefSent === false) {
         this.briefData['lead'] = this.leads[0].email
         this.$store.dispatch('createBrief', this.briefData)
-        this.$router.push('/thanks');
+        this.$store.dispatch('markBriefSent', true)
+        this.$router.push('/thanks')
         return true
       }
     }
