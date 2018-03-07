@@ -39,7 +39,7 @@ class LeadModelTestCase(LeadSetUpMixin, TestCase):
     """Test the Lead model."""
 
     def test_can_create(self):
-        """Test the bucketlist model can create a bucketlist."""
+        """Test the lead model can create a lead."""
 
         old_count = Lead.objects.count()
         Lead.objects.create(**self.lead_data)
@@ -57,7 +57,7 @@ class BriefModelTestCase(BriefSetUpMixin, TestCase):
     """Test the Brief model."""
 
     def test_can_create(self):
-        """Test the bucketlist model can create a bucketlist."""
+        """Test the brief model can create a brief."""
 
         old_count = Brief.objects.count()
         Brief.objects.create(**self.brief_data)

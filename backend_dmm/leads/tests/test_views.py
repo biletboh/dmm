@@ -4,8 +4,9 @@ from django.contrib.auth.models import User
 from rest_framework.test import APITestCase
 from rest_framework import status
 
-from leads.tests.test_models import BriefSetUpMixin, LeadSetUpMixin
 from leads.models import Lead
+from leads.serializers import LeadSerializer
+from leads.tests.test_models import BriefSetUpMixin, LeadSetUpMixin
 
 
 class LeadCRUDTestCase(LeadSetUpMixin, APITestCase):
@@ -37,8 +38,17 @@ class LeadCRUDTestCase(LeadSetUpMixin, APITestCase):
     def test_list(self):
         """Test the Lead list endpoint."""
 
+        Lead.objects.create(**self.lead_data)
+        Lead.objects.create(email='test2@dmm.solutions', name='Test2',
+                            phone='+380931212121', message='hello')
+        Lead.objects.create(email='test3@dmm.solutions', name='Test3',
+                            phone='+380931212121', message='hello')
+        leads = Lead.objects.all()
+        serializer = LeadSerializer(leads, many=True)
+
         self.client.force_authenticate(user=self.user)
         response = self.client.get(reverse('leads:list_create'))
+        self.assertEqual(response.data, serializer.data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
 

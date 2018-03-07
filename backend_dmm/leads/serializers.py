@@ -80,9 +80,9 @@ class LeadSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Lead
-        fields = ('email', 'name', 'phone', 'message', 'date', 'comment',
+        fields = ('id', 'email', 'name', 'phone', 'message', 'date', 'comment',
                   'brief', 'messages')
-        read_only_fields = ('date', 'comment', 'brief', 'messages')
+        read_only_fields = ('id', 'date', 'comment', 'brief', 'messages')
         extra_kwargs = {
                     'date': {'format': '%Y-%m-%d %H:%M'},
                     'email': {'validators': []},
