@@ -69,7 +69,6 @@ class MessagesSerializer(serializers.ModelSerializer):
         extra_kwargs = {
                     'date': {'format': '%Y-%m-%d %H:%M'},
                     }
-        depth = 1
 
 
 class LeadSerializer(serializers.ModelSerializer):
@@ -86,7 +85,6 @@ class LeadSerializer(serializers.ModelSerializer):
         extra_kwargs = {
                     'date': {'format': '%Y-%m-%d %H:%M'},
                     'email': {'validators': []},
-                    'messages__date': {'format': '%Y-%m-%d %H:%M'}
                     }
         depth = 1
 
@@ -110,3 +108,6 @@ class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Lead
         fields = ('comment',)
+        extra_kwargs = {
+                    'comment': {'required': True},
+                    }
