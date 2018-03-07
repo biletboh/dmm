@@ -1,7 +1,6 @@
 <template>
   <div class="component-wrapper">
     <!--========== PARALLAX ==========-->
-
     <div class="parallax-window" >
       <img src="../assets/img/1920x1080/01.jpg" v-parallax="0.4" class="parallax-img" alt="">
       <div class="parallax-content container">
@@ -9,7 +8,6 @@
       </div>
     </div>
     <!--========== PARALLAX ==========-->
-
     <!--========== PAGE LAYOUT ==========-->
     <!-- Our Exceptional Solutions -->
     <div class="content-lg container">
@@ -20,7 +18,6 @@
             <input v-model="password" type="password" class="form-control footer-input margin-b-20" placeholder="Password" required>
             <button type="submit" class="btn-theme btn-theme-sm btn-base-bg text-uppercase">Submit</button>
           </form>
-
         </div>
       </div>
       <!--// end row -->
@@ -33,10 +30,8 @@
 /* eslint-disable */
 import Vue from 'vue'
 import { User }  from '../api/user'
-// import { HTTP } from '../api/common'
 import VueSession from 'vue-session'
 import VueResource from 'vue-resource'
-
 
 Vue.use(VueResource)
 Vue.use(VueSession)
@@ -74,7 +69,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .parallax-img{
   top: -90%;

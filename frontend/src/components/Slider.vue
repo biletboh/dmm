@@ -9,7 +9,6 @@
         <li data-target="#carousel-example-generic" data-slide-to="2"></li>
       </ol>
     </div>
-
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active">
@@ -70,7 +69,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .carousel-inner{
   height: 100vh;

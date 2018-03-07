@@ -98,7 +98,7 @@ class LeadSerializer(serializers.ModelSerializer):
             Message.objects.create(
                         lead=lead, name=data['name'],
                         phone=data['phone'], message=data['message'])
-            msg = ('The lead already exists. '
+            msg = (data['email'] + ' already exists. '
                    + 'Added a new message from the lead.')
             raise serializers.ValidationError({'New message': msg})
         return data

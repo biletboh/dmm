@@ -6,14 +6,6 @@
       <div class="content-lg container">
         <div class="row">
           <div class="col-sm-7 sm-margin-b-50">
-            <!-- List -->
-             <!--<ul class="list-unstyled footer-list">
-              <li class="footer-list-item"><a class="footer-list-link" href="#">Phone </a></li>
-              <li class="footer-list-item"><a class="footer-list-link" href="#">Email info@dmm.solutions</a></li>
-              <li class="footer-list-item"><a class="footer-list-link" href="#">Skype</a></li>
-            </ul> -->
-            <!-- End List -->
-
             <div class="row">
               <div class="col-sm-2 col-xs-2">
                 <p class="footer-list-item">Phones</p>
@@ -24,7 +16,6 @@
                 <p></p>
               </div>
             </div>
-
             <div class="row">
               <div class="col-sm-2 col-xs-2">
                 <p class="footer-list-item">Email</p>
@@ -51,7 +42,6 @@
       </div>
     </div>
     <!-- End Links -->
-
     <!-- Copyright -->
     <div class="content container">
       <div class="row">
@@ -82,6 +72,5 @@ export default {
 }
 </script>
 
-  <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
 </style>

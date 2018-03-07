@@ -8,7 +8,9 @@ import {
   SET_LEADS,
   ACCESS_BRIEFS_OPTIONS,
   ADD_BRIEF_DATA,
-  INCREMENT_BRIEF
+  INCREMENT_BRIEF,
+  LEAD_SENT,
+  BRIEF_SENT
 } from './mutation-types.js'
 
 Vue.use(Vuex)
@@ -17,14 +19,19 @@ const state = {
   leads: [],
   briefOptions: [{'choices': []}],
   briefData: {},
-  briefCount: 0
+  briefCount: 0,
+  isLeadSent: false,
+  isBriefSent: false
 }
 
 const getters = {
   leads: state => state.leads,
   briefOptions: state => state.briefOptions,
   briefData: state => state.briefData,
-  briefCount: state => state.briefCount
+  briefCount: state => state.briefCount,
+  isLeadSent: state => state.isLeadSent,
+  isBriefSent: state => state.isBriefSent,
+
 }
 
 const mutations = {
@@ -42,10 +49,15 @@ const mutations = {
   },
   [INCREMENT_BRIEF] (state) {
     state.briefCount++
+  },
+  [LEAD_SENT] (state, mark) {
+    state.isLeadSent = mark
+  },
+  [BRIEF_SENT] (state, mark) {
+    state.isBriefSent = mark
   }
 }
 
-// Actions
 const actions = {
   createLead ({ commit }, leadData) {
     return new Promise((resolve, reject)=>{
@@ -76,6 +88,12 @@ const actions = {
   },
   createBrief ({ commit }, briefData) {
     Brief.create(briefData)
+  },
+  markLeadSent({ commit}, mark){
+    commit(LEAD_SENT, mark)
+  },
+  markBriefSent({ commit}, mark){
+    commit(BRIEF_SENT, mark)
   },
   incrementBriefCount ({ commit }) {
     commit(INCREMENT_BRIEF)
