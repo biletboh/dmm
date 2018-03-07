@@ -1,19 +1,19 @@
 <template>
   <form  v-on:submit="submitForm">
     <p :class="{ 'control': true }">
-      <input v-validate="'required|alpha_spaces'" :class="{'input': true, 'has-error': errors.has('name') }" class="form-control footer-input margin-b-20" v-model="name" name="name" type="text" placeholder="Name">
+      <input v-validate="'required|alpha_spaces'" :class="{'input': true, 'has-error': errors.has('name') }" data-vv-delay="500" class="form-control footer-input margin-b-20" v-model="name" name="name" type="text" placeholder="Name">
       <span v-show="errors.has('name')" class="help has-error">{{ errors.first('name') }}</span>
     </p>
     <p :class="{ 'control': true }">
-      <input v-validate="'required|email'" :class="{'input': true, 'has-error': errors.has('email') }" class="form-control footer-input margin-b-20" v-model="email" name="email" type="text" placeholder="Email">
+      <input v-validate="'required|email'" :class="{'input': true, 'has-error': errors.has('email') }" data-vv-delay="500" class="form-control footer-input margin-b-20" v-model="email" name="email" type="text" placeholder="Email">
       <span v-show="errors.has('email')" class="help has-error">{{ errors.first('email') }}</span>
     </p>
     <p :class="{ 'control': true }">
-      <input v-validate="'required|phonenumbercheck'" :class="{'input': true, 'has-error': errors.has('phone') }" class="form-control footer-input margin-b-20" v-model="phone" name="phone" type="text" placeholder="Phone">
+      <input v-validate="'required|phonenumbercheck'" :class="{'input': true, 'has-error': errors.has('phone') }" data-vv-delay="500" class="form-control footer-input margin-b-20" v-model="phone" name="phone" type="text" placeholder="Phone">
       <span v-show="errors.has('phone')" class="help has-error">{{ errors.first('phone') }}</span>
     </p>
     <p :class="{ 'control': true }">
-      <textarea v-validate="'required'" :class="{'textarea': true, 'has-error': errors.has('message') }" class="form-control footer-input margin-b-20" v-model="message" name="message" type="text" placeholder="Message" rows="6"></textarea>
+      <textarea v-validate="'required'" :class="{'textarea': true, 'has-error': errors.has('message') }" data-vv-delay="500" class="form-control footer-input margin-b-20" v-model="message" name="message" type="text" placeholder="Message" rows="6"></textarea>
       <span v-show="errors.has('message')" class="help has-error">{{ errors.first('message') }}</span>
     </p>
     <button type="submit" :disabled="!isFormComplete || errors.any() " class="btn-theme btn-theme-sm btn-base-bg text-uppercase">Submit</button>
