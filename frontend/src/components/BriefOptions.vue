@@ -8,9 +8,9 @@
     </div>
     </transition>
   <div  v-if="briefOptions.length == 1">
-    <img src="../assets/img/loading.gif" class="img-responsive center-block" alt="loading">
+    <img src="../assets/img/all/Preloader_2.gif" class="img-responsive center-block" alt="loading">
   </div>
-    <div class="row">
+    <div class="row options-wrapper">
       <div v-for="(choice, index) in briefOptions[position]['choices']" :key="index" class="col-sm-6 sm-margin-b-2 option wow fadeInLeft" data-wow-duration=".3" data-wow-delay=".3s">
         <div class="service" data-height="height" @click="nextQuestion(), saveBriefData(choice.value)" :id="choice.label">
           <div class="service-info">
@@ -82,5 +82,8 @@ export default {
 <style scoped>
   .option{
     padding: 1px;
+  }
+  .options-wrapper{
+    min-height: 440px;
   }
 </style>

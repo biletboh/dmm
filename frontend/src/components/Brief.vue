@@ -31,10 +31,10 @@
             </div>
           </div>
         </div>
+      </div>
     </div>
+    <!--========== END BRIEF ==========-->
   </div>
-  <!--========== END BRIEF ==========-->
-</div>
 </template>
 
 <script>
@@ -80,6 +80,8 @@ export default {
   },
   methods: {
     createBrief () {
+      this.showBriefForm = false
+      this.showBriefStart = false
       if (this.leads.length === 1 && this.isBriefSent === false) {
         this.briefData['lead'] = this.leads[0].email
         this.$store.dispatch('createBrief', this.briefData)
