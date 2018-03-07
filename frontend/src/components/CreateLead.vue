@@ -77,21 +77,27 @@ export default {
     createLead () {
       this.$store.dispatch('createLead', { name: this.name, email: this.email, phone: this.phone, message: this.message })
       .then(resp =>{
-        if(Object.keys(this.$store.state.briefData).length > 0 && this.isBriefSent === false){
-          this.$store.state.briefData['lead'] = this.email
-          this.$store.dispatch('createBrief', this.briefData)
-        } 
+        // if(Object.keys(this.$store.state.briefData).length > 0 && this.isBriefSent === false){
+        //   this.$store.state.briefData['lead'] = this.email
+        //   this.$store.dispatch('createBrief', this.briefData)
+        // }
         this.$router.push('/thanks')
+        setTimeout(function(){
+          $('.js-back-to-top').trigger( "click" )
+        },500)
       })
       .catch( err => {
         if(err.response ){
-          if(Object.keys(this.$store.state.briefData).length > 0 && this.isBriefSent === false){
-            let email = err.response.data['New message'][0].split(' ')[0]
-            this.$store.state.briefData['lead'] = email
-            this.$store.dispatch('createBrief', this.briefData)
-          }
+          // if(Object.keys(this.$store.state.briefData).length > 0 && this.isBriefSent === false){
+          //   let email = err.response.data['New message'][0].split(' ')[0]
+          //   this.$store.state.briefData['lead'] = email
+          //   this.$store.dispatch('createBrief', this.briefData)
+          // }
           this.$router.push('/thanks')
-          location.reload()
+          setTimeout(function(){
+            $('.js-back-to-top').trigger( "click" )
+          },500)
+
         } else{
           this.$router.push('/error')
         }

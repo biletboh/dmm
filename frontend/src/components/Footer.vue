@@ -11,9 +11,9 @@
                 <p class="footer-list-item">Phones</p>
               </div>
               <div class="col-sm-10 col-xs-10">
-                <p></p>
-                <p></p>
-                <p></p>
+                <p class="phone"><img src="../assets/img/all/ua.svg" class="flag" alt="ua">+380442907253</p>
+                <p class="phone"><img src="../assets/img/all/cy.svg" class="flag" alt="cy">+35724024408 </p>
+                <p class="phone"><img src="../assets/img/all/lv.svg" class="flag" alt="lv">+37167881935 </p>
               </div>
             </div>
             <div class="row">
@@ -73,4 +73,12 @@ export default {
 </script>
 
 <style>
+.phone{
+    vertical-align: middle;
+}
+.flag{
+    width: 20px;
+    margin-top: -4px;
+    margin-right: 5px;
+}
 </style>

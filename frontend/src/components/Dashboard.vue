@@ -81,7 +81,7 @@
                           <th>Date</th>
                           <th>Message</th>
                           <th>Comment</th>
-                          <th>Brief</th>
+                          <th class="text-center">Brief</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -94,17 +94,23 @@
                         <td>{{ lead.phone }}</td>
                         <td>{{ lead.date }}</td>
                         <td >
-                         <button v-if="lead.messages.length > 0" v-on:click="showModalMessage(lead)"
-                          class="btn btn-round btn-success btn-sm plus-minus-btn">
-                          <i class="material-icons">add</i>
-                        </button>
-                        <button v-else  class="btn btn-round btn-default btn-sm disabled plus-minus-btn">
-                          <i class="material-icons">add</i>
-                        </button>
+                         <span v-if="lead.messages.length > 0" v-on:click="showModalMessage(lead)"
+                          class=" tag label label-success">
+                        {{lead.messages.length}}</span>
+                        <span v-else  class="tag label label-default disabled">
+                        {{lead.messages.length}}</span>
                         {{ lead.message }}
                       </td>
-                      <td >{{ lead.comment }}</td>
-                      <td v-if="lead.brief">
+
+                      <td>
+                        <div class="form-group">
+                          <input class="form-control" @keyup.enter="updateComment(lead.id, lead.comment, $event)"  @focusout="updateComment(lead.id, lead.comment, $event)"  :key="lead.id" v-model="lead.comment" name="comment" type="text" >
+                          <span class="text-danger"></span>
+                          <!-- <span class="text-success"></span> -->
+                        </div>
+                      </td>
+
+                      <td class=" text-center" v-if="lead.brief">
                        <button
                        v-on:click="showModal(lead)"
                        class="btn btn-success btn-round btn-sm"
@@ -112,7 +118,7 @@
                        Brief
                      </button>
                    </td>
-                   <td v-else>
+                   <td class="text-center" v-else>
                      <span class="btn btn-defaut btn-round btn-sm disabled">No Brief</span>
                    </td>
                  </tr>
@@ -172,7 +178,6 @@
     </div>
   </div>
 </modal>
-
 </div>
 </template>
 
@@ -184,6 +189,7 @@ import VueResource from 'vue-resource'
 import { mapGetters } from 'vuex'
 import VModal from 'vue-js-modal'
 import Vue2Filters from 'vue2-filters'
+import { Comment }  from '../api/comment'
 
 Vue.use(VueResource)
 Vue.use(VueSession)
@@ -224,6 +230,24 @@ export default {
     },
     hideModalMessage () {
       this.$modal.hide('message')
+    },
+    updateComment(id, data, event){
+      // let el_suc = $(event.target).parent().find('span.text-success')
+      let el_err = $(event.target).parent().find('span.text-danger')
+
+      Comment.update(id, {"comment": data}, this.$session.get('Token'))
+      .then(response => {
+        // el_suc.html("Comment was successfully saved")
+        // setTimeout(function(){
+        //   el_suc.html("")
+        // },5000)
+      })
+      .catch( err => {
+        el_err.html("Comment wasn\'t saved: " + err.message)
+        setTimeout(function(){
+          el_err.html("")
+        },5000)
+      })
     }
   },
   beforeCreate: function () {
@@ -278,10 +302,11 @@ h5{
   cursor: pointer;
   font-size: 30px;
 }
-.plus-minus-btn{
-  padding: 5px !important;
+span.tag{
+  cursor: pointer !important;  
 }
-.plus-minus-btn i {
-  top: 0 !important;
+button.btn-success{
+  padding-left:   30px !important;
+  padding-right:  30px !important;
 }
 </style>

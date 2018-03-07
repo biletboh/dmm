@@ -6,6 +6,7 @@ import { Brief } from '../api/briefs'
 import {
   ADD_LEAD,
   SET_LEADS,
+  CLEAR_LEADS,
   ACCESS_BRIEFS_OPTIONS,
   ADD_BRIEF_DATA,
   INCREMENT_BRIEF,
@@ -40,6 +41,9 @@ const mutations = {
   },
   [SET_LEADS] (state, { leads }) {
     state.leads = leads
+  },
+  [CLEAR_LEADS] (state) {
+    state.leads = []
   },
   [ADD_BRIEF_DATA] (state, data) {
     state.briefData[data.briefData.field] = data.briefData.value
@@ -77,6 +81,9 @@ const actions = {
     Lead.list(token).then(leads => {
       commit(SET_LEADS, { leads })
     })
+  },
+  clearLeads ({ commit }) {
+    commit(CLEAR_LEADS)
   },
   optionsBrief ({ commit }) {
     Brief.options().then(briefOptions => {

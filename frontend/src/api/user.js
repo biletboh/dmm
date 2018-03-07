@@ -6,9 +6,6 @@ export const User = {
     return HTTP.post('/auth/', config)
     .then( response => {
         return response
-  })
-    .catch( err => {
-        return err
     })
 }
 }

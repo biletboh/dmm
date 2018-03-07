@@ -24,12 +24,7 @@
 <script>
 /* eslint-disable */
 export default {
-  name: 'Thanks',
-  mounted(){
-    setTimeout(function(){
-      $('.js-back-to-top').trigger( "click" )
-    },500)
-  }
+  name: 'Thanks'
 }
 </script>
 

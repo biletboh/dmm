@@ -72,6 +72,7 @@ export default {
     },
     briefIsReady () {
       if (this.briefCount === 9) {
+        this.$store.dispatch('clearLeads')
         this.createBrief()
         return true
       }
