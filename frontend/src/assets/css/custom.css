@@ -5,7 +5,7 @@
 
 .header .nav-item-child {
   margin: 25px 0 25px 25px;
-  background: #63cbd7;
+  background: #00a2f4;
   padding: 16px !important;
   line-height: 1;
 }
@@ -58,7 +58,7 @@
 }
 
 .mapLegend {
-  color: rgba(0, 204, 204, 1);
+  color: rgba(0, 162, 244, 1);
 }
 
 .legend-container {
@@ -76,11 +76,11 @@
 }
 
 .legend-1 {
-  background-color: rgba(0, 204, 204, 0.5);
+  background-color: rgba(0, 162, 244, 0.5);
 }
 
 .legend-2 {
-  background-color: rgba(0, 204, 204, 1);
+  background-color: rgba(0, 162, 244, 1);
 }
 
 
@@ -98,7 +98,7 @@ label {
 }
 
 .outer {
-  background-color: rgba(0, 204, 204, 0.5);
+  background-color: rgba(0, 162, 244, 0.5);
   width: 150px;
   height: 150px;
   position: relative;
@@ -107,7 +107,7 @@ label {
 }
 
 .inner {
-  background-color: rgba(0, 204, 204, 1);
+  background-color: rgba(0, 162, 244, 1);
   border: none;
   top: 50%;
   left: 30%;
@@ -177,7 +177,7 @@ label {
 }
 
 .service:hover {
-  background-color: #63cbd7;
+  background-color: #00a2f4;
   transition: background 0.5s linear;
   cursor: pointer;
   color: #fff;

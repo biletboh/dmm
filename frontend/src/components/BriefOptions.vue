@@ -11,7 +11,7 @@
     <img src="../assets/img/all/Preloader_2.gif" class="img-responsive center-block" alt="loading">
   </div>
     <div class="row options-wrapper">
-      <div v-for="(choice, index) in briefOptions[position]['choices']" :key="index" class="col-sm-6 sm-margin-b-2 option wow fadeInLeft" data-wow-duration=".3" data-wow-delay=".3s">
+      <div v-for="(choice, index) in briefOptions[position]['choices']" :key="index" class="col-sm-6 sm-margin-b-2 option wow fadeInLeft" data-wow-duration=".3" :data-wow-delay="countDelay(index+1)">
         <div class="service" data-height="height" @click="nextQuestion(), saveBriefData(choice.value)" :id="choice.label">
           <div class="service-info">
             <h3>{{ choice.display_name }} </h3>
@@ -27,6 +27,7 @@ import { mapGetters } from 'vuex'
 
 export default {
   name: 'BriefOptions',
+  props: ['data-wow-delay'],
   data () {
     return {
       fields: [
@@ -65,6 +66,9 @@ export default {
     }
   },
   methods: {
+    countDelay (delay) {
+      return '.' + delay++ + 's'
+    },
     nextQuestion: function () {
       return this.$store.dispatch('incrementBriefCount')
     },
