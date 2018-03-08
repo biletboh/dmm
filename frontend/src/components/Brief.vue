@@ -72,24 +72,28 @@ export default {
     },
     briefIsReady () {
       if (this.briefCount === 9) {
-        this.$store.dispatch('clearLeads')
         this.createBrief()
         return true
       }
       return false
     }
+    // }
   },
   methods: {
+    showStart () {
+      this.showBriefForm = true
+      this.showBriefStart = true
+    },
     createBrief () {
       this.showBriefForm = false
       this.showBriefStart = false
-      if (this.leads.length === 1 && this.isBriefSent === false) {
-        this.briefData['lead'] = this.leads[0].email
-        this.$store.dispatch('createBrief', this.briefData)
-        this.$store.dispatch('markBriefSent', true)
-        this.$router.push('/thanks')
-        return true
-      }
+      // if (this.leads.length === 1 && this.isBriefSent === false) {
+      //   this.briefData['lead'] = this.leads[0].email
+      //   this.$store.dispatch('createBrief', this.briefData)
+      //   this.$store.dispatch('markBriefSent', true)
+      //   this.$router.push('/thanks')
+      //   return true
+      // }
     }
   },
   components: {
