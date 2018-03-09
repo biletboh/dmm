@@ -9,9 +9,10 @@ import {
   CLEAR_LEADS,
   ACCESS_BRIEFS_OPTIONS,
   ADD_BRIEF_DATA,
+  CLEAR_BRIEF_DATA,
   INCREMENT_BRIEF,
   LEAD_SENT,
-  BRIEF_SENT
+  BRIEF_SENT,
 } from './mutation-types.js'
 
 Vue.use(Vuex)
@@ -50,6 +51,10 @@ const mutations = {
   },
   [ACCESS_BRIEFS_OPTIONS] (state, { briefOptions }) {
     state.briefOptions = Object.values(briefOptions.actions.POST)
+  },
+  [CLEAR_BRIEF_DATA] (state) {
+    state.briefData = {}
+    state.briefCount = 0
   },
   [INCREMENT_BRIEF] (state) {
     state.briefCount++
@@ -95,6 +100,9 @@ const actions = {
   },
   createBrief ({ commit }, briefData) {
     Brief.create(briefData)
+  },
+  clearBriefData ({ commit }) {
+    commit(CLEAR_BRIEF_DATA)
   },
   markLeadSent({ commit}, mark){
     commit(LEAD_SENT, mark)

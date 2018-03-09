@@ -50,7 +50,7 @@ export default {
       var data = {
         datasets: [{
           data: [37, 75],
-          backgroundColor: ["rgba(0, 204, 204, 1)", "rgba(0, 204, 204, 0.5)"]
+          backgroundColor: ["rgba(0, 162, 244, 1)", "rgba(0, 162, 244, 0.5)"]
         }],
         labels: [
         ['Regular', 'customers'],
@@ -94,11 +94,11 @@ export default {
           name: "world_countries",
           defaultArea: {
             attrs: {
-              fill: "rgba(0, 204, 204, 0.5)",
+              fill: "rgba(0, 162, 244, 0.5)",
               stroke: "#ffffff"
             },
             attrsHover: {
-              fill: "rgba(0, 204, 204, 1)"
+              fill: "rgba(0, 162, 244, 1)"
             },
             text: {
               attrs: {
