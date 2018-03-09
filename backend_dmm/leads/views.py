@@ -12,7 +12,7 @@ class LeadListCreateView(generics.ListCreateAPIView):
     """Create a lead and display a list of leads."""
 
     permission_classes = [Or(IsAuthenticated, IsPostRequest)]
-    queryset = Lead.objects.all()
+    queryset = Lead.objects.all().order_by('-date')
     serializer_class = LeadSerializer
 
 
