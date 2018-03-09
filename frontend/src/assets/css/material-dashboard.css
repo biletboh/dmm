@@ -5785,7 +5785,7 @@ h2.title {
     z-index: 3;
   }
   .sidebar-mini .sidebar .sidebar-wrapper {
-    overflow: inherit;
+    /*overflow: inherit;*/
     width: 80px;
     box-shadow: none;
   }

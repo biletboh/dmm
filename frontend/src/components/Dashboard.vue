@@ -132,7 +132,7 @@
  </div>
 </div>
 </div>
-<modal name="hello-world" height="auto" :scrollable="true" :draggable="true" width="50%">
+<modal name="hello-world" height="auto" :draggable="true" width="50%">
   <div class="modal-header">
     <div class="row">
       <div class="col-md-10">
@@ -155,7 +155,7 @@
     </div>
   </div>
 </modal>
-<modal name="message" height="auto" :scrollable="true" :draggable="true" width="50%">
+<modal name="message" height="auto" :draggable="true" width="50%">
   <div class="modal-header">
     <div class="row">
       <div class="col-md-10">
@@ -308,5 +308,8 @@ span.tag{
 button.btn-success{
   padding-left:   30px !important;
   padding-right:  30px !important;
+}
+.v--modal-overlay{
+  overflow-y: auto; 
 }
 </style>
