@@ -141,13 +141,13 @@
 <modal name="brief" height="auto" :draggable="true" width="50%">
   <div class="modal-header">
     <div class="row">
-      <div class="col-md-10 col-xs-10">
+      <div class="col-md-10 col-xs-9">
         <h5>
           {{ modalLead.name }}<br>
           {{ modalLead.email }}<br>
         {{ modalLead.phone }}</h5>
       </div>
-      <div class="col-md-2 col-xs-2">
+      <div class="col-md-2 col-xs-3">
         <p class="text-right">
           <i @click="$modal.hide('brief')" @touchstart="$modal.hide('brief')" id="close-btn" class="material-icons">close</i>
         </p>
@@ -164,13 +164,13 @@
 <modal name="message" height="auto" :draggable="true" width="50%">
   <div class="modal-header">
     <div class="row">
-      <div class="col-md-10 col-xs-10">
+      <div class="col-md-10 col-xs-9">
         <h5>
           {{ modalLead.name }}<br>
           {{ modalLead.email }}<br>
         {{ modalLead.phone }}</h5>
       </div>
-      <div class="col-md-2 col-xs-2">
+      <div class="col-md-2 col-xs-3">
         <p class="text-right">
           <i @click="$modal.hide('message')" @touchstart="$modal.hide('message')" id="close-btn" class="material-icons">close</i>
         </p>
