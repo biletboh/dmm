@@ -323,11 +323,13 @@ md = {
             $navbar.children('ul').each(function(){
 
                 content_buff = $(this).html();
+                // added for hidding nav button 
+                content_buff = '';
+                // end added
                 nav_content = nav_content + content_buff;
             });
 
             nav_content = '<ul class="nav nav-mobile-menu">' + nav_content + '</ul>';
-
             $navbar_form = $('nav').find('.navbar-form').clone(true);
 
             $sidebar_nav = $sidebar_wrapper.find(' > .nav');
@@ -359,53 +361,8 @@ md = {
         if(!toggle_initialized){
             $toggle = $('.navbar-toggle');
 
-            $('body').on('click', $toggle, function(){
-                                if(mobile_menu_visible == 1) {
-                    $('html').removeClass('nav-open');
-
-                    $('.close-layer').remove();
-                    setTimeout(function(){
-                        $toggle.removeClass('toggled');
-                    }, 400);
-
-                    mobile_menu_visible = 0;
-                } else {
-                    setTimeout(function(){
-                        $toggle.addClass('toggled');
-                    }, 430);
-
-
-                    main_panel_height = $('.main-panel')[0].scrollHeight;
-                    $layer = $('<div class="close-layer"></div>');
-                    $layer.css('height',main_panel_height + 'px');
-                    $layer.appendTo(".main-panel");
-
-                    setTimeout(function(){
-                        $layer.addClass('visible');
-                    }, 100);
-
-                    $layer.click(function() {
-                        $('html').removeClass('nav-open');
-                        mobile_menu_visible = 0;
-
-                        $layer.removeClass('visible');
-
-                         setTimeout(function(){
-                            $layer.remove();
-                            $toggle.removeClass('toggled');
-
-                         }, 400);
-                    });
-
-                    $('html').addClass('nav-open');
-                    mobile_menu_visible = 1;
-
-                }
-            });
-
-            // $toggle.click(function (){
-
-            //     if(mobile_menu_visible == 1) {
+            // $('body').on('click', $toggle, function(){
+            //                     if(mobile_menu_visible == 1) {
             //         $('html').removeClass('nav-open');
 
             //         $('.close-layer').remove();
@@ -447,6 +404,51 @@ md = {
 
             //     }
             // });
+
+            $toggle.click(function (){
+
+                if(mobile_menu_visible == 1) {
+                    $('html').removeClass('nav-open');
+
+                    $('.close-layer').remove();
+                    setTimeout(function(){
+                        $toggle.removeClass('toggled');
+                    }, 400);
+
+                    mobile_menu_visible = 0;
+                } else {
+                    setTimeout(function(){
+                        $toggle.addClass('toggled');
+                    }, 430);
+
+
+                    main_panel_height = $('.main-panel')[0].scrollHeight;
+                    $layer = $('<div class="close-layer"></div>');
+                    $layer.css('height',main_panel_height + 'px');
+                    $layer.appendTo(".main-panel");
+
+                    setTimeout(function(){
+                        $layer.addClass('visible');
+                    }, 100);
+
+                    $layer.click(function() {
+                        $('html').removeClass('nav-open');
+                        mobile_menu_visible = 0;
+
+                        $layer.removeClass('visible');
+
+                         setTimeout(function(){
+                            $layer.remove();
+                            $toggle.removeClass('toggled');
+
+                         }, 400);
+                    });
+
+                    $('html').addClass('nav-open');
+                    mobile_menu_visible = 1;
+
+                }
+            });
 
             toggle_initialized = true;
         }

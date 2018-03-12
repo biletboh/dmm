@@ -24,6 +24,12 @@
         </div>
         <ul class="nav">
           <li>
+            <a href="#" @click="logout">
+              <i class="material-icons">power_settings_new</i>
+              <p>Logout</p>
+            </a>
+          </li>
+          <li>
             <a href="#">
               <i class="material-icons">dashboard</i>
               <p>Leads</p>
@@ -52,7 +58,7 @@
           <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
               <li>
-                <a  class="btn btn-round btn-info btn-fill btn-just-icon" @click="logout" >
+                <a  class="btn btn-round btn-info btn-fill btn-just-icon" @click="logout" @touchstart="logout()" >
                   <i class="material-icons">power_settings_new</i>
                 </a>
               </li>
@@ -132,18 +138,18 @@
  </div>
 </div>
 </div>
-<modal name="hello-world" height="auto" :draggable="true" width="50%">
+<modal name="brief" height="auto" :draggable="true" width="50%">
   <div class="modal-header">
     <div class="row">
-      <div class="col-md-10">
+      <div class="col-md-10 col-xs-10">
         <h5>
           {{ modalLead.name }}<br>
           {{ modalLead.email }}<br>
         {{ modalLead.phone }}</h5>
       </div>
-      <div class="col-md-2">
+      <div class="col-md-2 col-xs-2">
         <p class="text-right">
-          <i @click="$modal.hide('hello-world')" id="close-btn" class="material-icons">close</i>
+          <i @click="$modal.hide('brief')" @touchstart="$modal.hide('brief')" id="close-btn" class="material-icons">close</i>
         </p>
       </div>
     </div>
@@ -158,15 +164,15 @@
 <modal name="message" height="auto" :draggable="true" width="50%">
   <div class="modal-header">
     <div class="row">
-      <div class="col-md-10">
+      <div class="col-md-10 col-xs-10">
         <h5>
           {{ modalLead.name }}<br>
           {{ modalLead.email }}<br>
         {{ modalLead.phone }}</h5>
       </div>
-      <div class="col-md-2">
+      <div class="col-md-2 col-xs-2">
         <p class="text-right">
-          <i @click="$modal.hide('message')" id="close-btn" class="material-icons">close</i>
+          <i @click="$modal.hide('message')" @touchstart="$modal.hide('message')" id="close-btn" class="material-icons">close</i>
         </p>
       </div>
     </div>
@@ -219,17 +225,11 @@ export default {
     },
     showModal (lead) {
       this.modalLead = lead
-      this.$modal.show('hello-world')
-    },
-    hideModal () {
-      this.$modal.hide('hello-world')
+      this.$modal.show('brief')
     },
     showModalMessage (lead) {
       this.modalLead = lead
       this.$modal.show('message')
-    },
-    hideModalMessage () {
-      this.$modal.hide('message')
     },
     updateComment(id, data, event){
       // let el_suc = $(event.target).parent().find('span.text-success')
@@ -311,5 +311,10 @@ button.btn-success{
 }
 .v--modal-overlay{
   overflow-y: auto; 
+}
+
+.navbar .navbar-toggle .icon-bar {
+
+  margin-top: 4px;
 }
 </style>
