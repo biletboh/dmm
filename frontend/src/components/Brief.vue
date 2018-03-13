@@ -21,9 +21,11 @@
             </div>
           </div>
         </div>
+        <transition name="component-fade" mode="out-in">
         <dmm-brief-options v-if="showBriefForm"></dmm-brief-options>
+        </transition>
         <div v-if="showBriefCompleted" id="complete-test" class="text-center">
-          <h2>You have successfully completed!</h2>
+          <h2 class="completed-title">You have successfully completed!</h2>
           <div class="row">
             <div class="col-sm-6 col-sm-offset-3 sm-margin-b-30 lead-form">
               <p class="text-center">Please leave your contact information to get the most advantageous offer from DMM based on the received answers.</p>
@@ -111,5 +113,16 @@ export default {
 .lead-form >>> textarea {
   background-color: #fff;
   border: 1px solid #ccc;
+}
+.completed-title{
+  color:  #00a2f4;
+}
+
+.component-fade-enter-active, .component-fade-leave-active {
+  transition: opacity 2s ease;
+}
+.component-fade-enter, .component-fade-leave-to{
+  opacity: 0;
+  transition: opacity 0.7s ease;
 }
 </style>
