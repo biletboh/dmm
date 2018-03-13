@@ -1,30 +1,24 @@
 <template>
   <div v-if="briefOptions">
     <div class="row">
-              <!-- <transition name="slide-fade" mode="out-in"> -->
-        <div class="col-sm-12 sm-margin-b-2 wow fadeInLeft animated" :key="titles[position]" data-wow-duration="1.3s">
-          <h2 class="text-center"> {{ titles[position] }} </h2>
-        </div>
-      <!-- </transition> -->
+      <div class="col-sm-12 sm-margin-b-2 wow fadeInLeft animated" :key="titles[position]" data-wow-duration="1.3s">
+        <h2 class="text-center"> {{ titles[position] }} </h2>
+      </div>
     </div>
     <div  v-if="briefOptions.length == 1">
       <img src="../assets/img/all/Preloader_2.gif" class="img-responsive center-block" alt="loading">
     </div>
     <div class="row options-wrapper">
-      <!-- <transition-group appear name="fade" mode="out-in" tag="div"> -->
-        <div v-for="(choice, index) in briefOptions[position]['choices']" :key="index" class="col-sm-6 sm-margin-b-2 option" >
-          <!-- <transition appear name="fade" mode="out-in" > -->
-          <div data-height="height" @click="nextQuestion(), saveBriefData(choice.value)" :id="choice.label" :key="randInt()"
-            class="service wow fadeInLeft animated" data-wow-duration="1.3s" :data-wow-delay="countDelay(index+1)" >
-            <div class="service-info" :key="choice">
-              <h3>{{ choice.display_name }} </h3>
-            </div>
-          </div>
-        <!-- </transition> -->
+      <div v-for="(choice, index) in briefOptions[position]['choices']" :key="index" class="col-sm-6 sm-margin-b-2 option" >
+        <div data-height="height" @click="nextQuestion(), saveBriefData(choice.value)" :id="choice.label" :key="randInt()"
+        class="service wow fadeInLeft animated" data-wow-duration="1.3s" :data-wow-delay="countDelay(index+1)" >
+        <div class="service-info" :key="choice">
+          <h3>{{ choice.display_name }} </h3>
         </div>
-      <!-- </transition-group> -->
+      </div>
     </div>
   </div>
+</div>
 </template>
 
 <script>
@@ -98,19 +92,4 @@ export default {
 .options-wrapper{
   min-height: 440px;
 }
-
-.list-enter-active, .list-leave-active {
-  transition: all 1s;
-}
-.list-enter, .list-leave-to {
-  opacity: 0;
-  transform: translateX(30px);
-}
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .3s;
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active до версии 2.1.8 */ {
-  opacity: 0;
-}
-
 </style>
