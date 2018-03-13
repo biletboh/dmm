@@ -1,0 +1,22 @@
+import { HTTP } from './common'
+
+export const Lead = {
+  create (config) {
+    return HTTP.post('/leads/', config)
+    .then(
+      response => {
+        return response.data
+    })
+  },
+  list (token) {
+    return HTTP.get('/leads/',
+                    {
+                    headers: {
+                      'Authorization': 'Token ' + token
+                      }
+                    }
+                    ).then(response => {
+      return response.data
+    })
+  }
+}

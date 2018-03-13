@@ -1,0 +1,19 @@
+import { HTTP } from './common'
+
+export const Brief = {
+  create (config) {
+    return HTTP.post('/briefs/', config).then(response => {
+      return response.data
+    })
+  },
+  list () {
+    return HTTP.get('/briefs/').then(response => {
+      return response.data
+    })
+  },
+  options () {
+    return HTTP.options('/briefs/').then(response => {
+      return response.data
+    })
+  }
+}

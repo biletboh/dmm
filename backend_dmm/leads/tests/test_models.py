@@ -3,8 +3,8 @@ from django.test import TestCase
 from leads.models import Lead, Brief
 
 
-class SetUpMixin(object):
-    """Add intial data to a TestCase."""
+class LeadSetUpMixin(object):
+    """Add intial data to a Lead TestCases."""
 
     def setUp(self):
         self.lead_data = {
@@ -13,24 +13,15 @@ class SetUpMixin(object):
                     'phone': '+380930112121',
                     'message': 'I want to use dmm!'
                     }
-        self.lead = Lead.objects.create(**self.lead_data)
 
 
-class LeadModelTestCase(SetUpMixin, TestCase):
-    """Test the Lead model."""
-
-    def test_str(self):
-        """Test a string representation of the model."""
-
-        self.assertEqual(str(self.lead), self.lead_data['email'])
-
-
-class BriefModelTestCase(SetUpMixin, TestCase):
-    """Test the Brief model."""
+class BriefSetUpMixin(LeadSetUpMixin, object):
+    """Add intial data to a Brief TestCases."""
 
     def setUp(self):
-        super(BriefModelTestCase, self).setUp()
-        brief_data = {
+        super(BriefSetUpMixin, self).setUp()
+        self.lead = Lead.objects.create(**self.lead_data)
+        self.brief_data = {
             'industry': Brief.INDUSTRIES.forex.value[0],
             'experience': Brief.EXPERIENCE.less_1.value[0],
             'aim': Brief.AIMS.marketing.value[0],
@@ -40,11 +31,42 @@ class BriefModelTestCase(SetUpMixin, TestCase):
             'callcenter': Brief.CALLCENTERS.own_callcenter.value[0],
             'marketing': Brief.MARKETING.own.value[0],
             'payment': Brief.PAYMENTS.crypto.value[0],
+            'lead': self.lead
         }
-        self.brief = Brief.objects.create(lead=self.lead, **brief_data)
+
+
+class LeadModelTestCase(LeadSetUpMixin, TestCase):
+    """Test the Lead model."""
+
+    def test_can_create(self):
+        """Test the lead model can create a lead."""
+
+        old_count = Lead.objects.count()
+        Lead.objects.create(**self.lead_data)
+        new_count = Lead.objects.count()
+        self.assertNotEqual(old_count, new_count)
+
+    def test_str(self):
+        """Test a string representation of the model."""
+
+        lead = Lead.objects.create(**self.lead_data)
+        self.assertEqual(str(lead), self.lead_data['email'])
+
+
+class BriefModelTestCase(BriefSetUpMixin, TestCase):
+    """Test the Brief model."""
+
+    def test_can_create(self):
+        """Test the brief model can create a brief."""
+
+        old_count = Brief.objects.count()
+        Brief.objects.create(**self.brief_data)
+        new_count = Brief.objects.count()
+        self.assertNotEqual(old_count, new_count)
 
     def test_str(self):
         """Test a string representation of the model."""
 
         string_repr = f'Brief of {self.lead_data["email"]}'
-        self.assertEqual(str(self.brief), string_repr)
+        brief = Brief.objects.create(**self.brief_data)
+        self.assertEqual(str(brief), string_repr)
