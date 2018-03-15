@@ -290,6 +290,9 @@ td{
   font-weight: 200;
   padding: 0 !important;
 }
+tbody > tr > td:first-child {
+  padding-left: 10px !important;
+}
 .answer{
   color: #515769;
 }
