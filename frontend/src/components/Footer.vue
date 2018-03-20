@@ -51,7 +51,10 @@
         <div class="col-xs-6 text-right">
           <p class="margin-b-0">
             <router-link to="/terms" class="color-base fweight-700">Terms of Use</router-link>
-            <br> <router-link to="/policy" class="color-base fweight-700" >Privacy Policy</router-link></p>
+          </p>
+          <p class="margin-b-0">
+
+            <router-link to="/policy" class="color-base fweight-700" >Privacy Policy</router-link></p>
           </div>
         </div>
         <!--// end row -->

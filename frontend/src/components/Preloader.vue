@@ -12,7 +12,7 @@ export default {
   name: 'Preloader',
   methods:{
     initPreloader: function(){
-      jQuery('#preloader').show().delay(1000).fadeOut('slow');
+      jQuery('#preloader').show().delay(1200).fadeOut('slow');
     }
   },
   watch: {
@@ -20,8 +20,10 @@ export default {
       this.initPreloader();
     }
   },
-  mounted (){
-    this.initPreloader();
+    mounted(){
+      window.onload = function(){
+      $('#preloader').fadeOut('slow');
+    }
   }
 }
 </script>

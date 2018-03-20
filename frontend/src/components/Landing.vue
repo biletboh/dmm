@@ -1,6 +1,5 @@
 <template>
   <div>
-    <dmm-preloader></dmm-preloader>
     <dmm-header></dmm-header>
     <router-view name="sublanding"></router-view>
     <dmm-footer></dmm-footer>
@@ -13,14 +12,12 @@
 
 <script>
 /* eslint-disable */
-import Preloader from './Preloader'
 import Header from './Header'
 import Footer from './Footer'
 
 export default {
   name: 'Landing',
   components: {
-    'dmm-preloader': Preloader,
     'dmm-header': Header,
     'dmm-footer': Footer,
   },
