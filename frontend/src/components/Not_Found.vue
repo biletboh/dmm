@@ -9,12 +9,11 @@
     </div>
     <!--========== PARALLAX ==========-->
     <div class="content-lg container">
-      <div class="row margin-b-40">
+      <div class="row">
         <div class="col-sm-12">
-          <p class="privacy-text">
+          <h2>
             Sorry, this page doesn't exist
-            <br><br><br>
-          </p>
+          </h2>
         </div>
       </div>
     </div>

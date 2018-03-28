@@ -13,7 +13,7 @@
       <span v-show="errors.has('phone')" class="help has-error">{{ errors.first('phone') }}</span>
     </p>
     <p :class="{ 'control': true }">
-      <textarea v-validate="'required'" :class="{'textarea': true, 'has-error': errors.has('message') }" data-vv-delay="500" class="form-control footer-input margin-b-20" v-model="message" name="message" type="text" placeholder="Message" rows="6"></textarea>
+      <textarea v-validate="''" :class="{'textarea': true, 'has-error': errors.has('message') }" data-vv-delay="500" class="form-control footer-input margin-b-20" v-model="message" name="message" type="text" placeholder="Message" rows="6"></textarea>
       <span v-show="errors.has('message')" class="help has-error">{{ errors.first('message') }}</span>
     </p>
     <button type="submit" :disabled="!isFormComplete || errors.any() " class="btn-theme btn-theme-sm btn-base-bg text-uppercase">Submit</button>
@@ -59,7 +59,7 @@ export default {
   },
   computed: {
     isFormComplete () {
-      return this.name && this.phone && this.email && this.message;
+      return this.name && this.phone && this.email;
     },
     ...mapGetters([
       'briefData',
@@ -86,6 +86,9 @@ export default {
           $('.js-back-to-top').trigger( "click" )
         },500)
 
+        this.email = ''
+        this.phone = ''
+        this.name = ''
         this.$store.dispatch('clearLeads')
         this.$store.dispatch('clearBriefData')
       })
@@ -101,9 +104,11 @@ export default {
             $('.js-back-to-top').trigger( "click" )
           },500)
 
+          this.email = ''
+          this.phone = ''
+          this.name = ''
           this.$store.dispatch('clearLeads')
           this.$store.dispatch('clearBriefData')
-
         } else{
           this.$router.push('/error')
         }
