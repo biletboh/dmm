@@ -175,26 +175,18 @@ label {
   min-height: 140px;
   padding: 20px;
 }
-
 .service:hover {
   background-color: #00a2f4;
   transition: background 0.5s linear;
   cursor: pointer;
   color: #fff;
 }
-
-.service:hover  h3 {
-  transition: background 0.5s linear;
-  color: #fff;
-}
-
-.service-info h3 {
+.service h3 {
   margin-bottom: 0;
   line-height: 1.1;
 }
-
-.service:hover .service-info {
-  transform: translate3d(0, -10px, 0);
+.service:hover h3 {
+  color: #fff;
 }
 
 .slide-fade-enter-active {

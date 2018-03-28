@@ -114,7 +114,7 @@ export default {
         // Image plot
         'Kiev': {
           type: "image",
-          url: "http://email-list.org/marker.png",
+          url: require("../assets/img/all/marker.png"),
           width: 12,
           height: 40,
           latitude: 50.43,
@@ -131,7 +131,7 @@ export default {
         },
         'Minsk': {
           type: "image",
-          url: "http://email-list.org/marker.png",
+          url: require("../assets/img/all/marker.png"),
           width: 12,
           height: 40,
           latitude: 53.89,
@@ -148,7 +148,7 @@ export default {
         },
         'Limassol': {
           type: "image",
-          url: "http://email-list.org/marker.png",
+          url: require("../assets/img/all/marker.png"),
           width: 12,
           height: 40,
           latitude: 34.70,
@@ -165,7 +165,7 @@ export default {
         },
         'NewDelhi': {
           type: "image",
-          url: "http://email-list.org/marker.png",
+          url: require("../assets/img/all/marker.png"),
           width: 12,
           height: 40,
           latitude: 28.64,
@@ -182,7 +182,7 @@ export default {
         },
         'Nairobi': {
           type: "image",
-          url: "http://email-list.org/marker.png",
+          url: require("../assets/img/all/marker.png"),
           width: 12,
           height: 40,
           latitude: -1.36,
@@ -199,7 +199,7 @@ export default {
         },
         'Tbilisi': {
           type: "image",
-          url: "http://email-list.org/marker.png",
+          url: require("../assets/img/all/marker.png"),
           width: 12,
           height: 40,
           latitude: 41.71,
@@ -216,7 +216,7 @@ export default {
         },
         'Dubai': {
           type: "image",
-          url: "http://email-list.org/marker.png",
+          url: require("../assets/img/all/marker.png"),
           width: 12,
           height: 40,
           latitude: 25.27,

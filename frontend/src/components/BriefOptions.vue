@@ -10,15 +10,18 @@
     </div>
     <div class="row options-wrapper">
       <div v-for="(choice, index) in briefOptions[position]['choices']" :key="index" class="col-sm-6 sm-margin-b-2 option" >
-        <div data-height="height" @click="nextQuestion(), saveBriefData(choice.value)" :id="choice.label" :key="randInt()"
-        class="service wow fadeInLeft animated" data-wow-duration="1.3s" :data-wow-delay="countDelay(index+1)" >
-        <div class="service-info" :key="choice">
-          <h3>{{ choice.display_name }} </h3>
+        <div
+          v-cloak data-height="height"
+          @click="nextQuestion(), saveBriefData(choice.value)"
+          :id="choice.label" :key="randInt()"
+          class="service service-info wow fadeInLeft animated"
+          data-wow-duration="1.3s" :data-wow-delay="countDelay(index+1)"
+        >
+          <h3 v-cloak>{{ choice.display_name }}</h3>
         </div>
       </div>
     </div>
   </div>
-</div>
 </template>
 
 <script>
