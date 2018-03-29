@@ -17,5 +17,5 @@ DATABASES = {
 }
 
 CORS_ORIGIN_WHITELIST = (
-    os.environ.get('API_ORIGIN'),
+    tuple(os.environ.get('API_ORIGIN').split(',')),
 )
