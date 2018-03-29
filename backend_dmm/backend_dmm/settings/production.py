@@ -16,6 +16,5 @@ DATABASES = {
     }
 }
 
-CORS_ORIGIN_WHITELIST = (
-    tuple(os.environ.get('API_ORIGIN').split(',')),
-)
+CORS_ORIGIN_WHITELIST = tuple(os.environ.get('API_ORIGIN').split(',')),
+
