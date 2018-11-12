@@ -42,11 +42,11 @@
           <router-link to="/product_3">
           <div class="margin-b-20">
             <div class="wow zoomIn" data-wow-duration=".3" data-wow-delay=".1s">
-              <img class="img-responsive" src="../assets/img/970x647/01.jpg" alt="Latest Products Image">
+              <img class="img-responsive" src="../assets/img/970x647/04.jpg" alt="Latest Products Image">
             </div>
           </div>
-          <h4>Payment Systems Integration</h4>
-          <p>Installation of 4 main payment methods: Visa / Mastercard, E-wallet, Bank transfers, Cryptocurrencies in order to simplify payment for services.</p>
+          <h4>Service for efficient lead generation</h4>
+          <p>Get custom creative lead generation materials through CPA, CPL and CPC networks.</p>
           <a class="link">Read More</a>
         </router-link>
       </div>
