@@ -4,7 +4,7 @@
     <div class="parallax-window" >
       <img src="../assets/img/all/poster3.jpg" v-parallax="0.4" class="parallax-img" alt="">
       <div class="parallax-content container">
-        <h1 class="carousel-title">Service for efficient <br>lead generation</h1>
+        <h1 class="carousel-title">Service for effective <br>lead generation</h1>
         <p>DMM.Solutions team develops creative materials for the order to increase the number of attracted clients through various networks.</p>
       </div>
     </div>
@@ -15,7 +15,7 @@
       <div class="row margin-b-40">
         <div class="col-sm-12">
           <h2>What does the service include?</h2>
-          <p class="black-text">DMM offers you the development of creative materials based on your proposal.  We create various materials from start to finish for the most successful completion of the sales funnel. You can order landings, banners, pop-ups, pop-unders, HTML-templates for mailing, design, and maintenance of automatic marketing funnels. Our team is ready to offer you the most exciting ideas for the achievement of maximizing customer interest. </p>
+          <p class="black-text">DMM offers you the development of creative materials based on your proposal.  We create various materials from start to finish for the most successful completion of the sales funnel. You can order landings, banners, pop-ups, pop-unders, HTML-templates for mailing, design, and maintenance of automatic marketing funnels. We also translate creative materials into all languages of the world, which will significantly increase your target audience coverage. Our team is ready to offer you the most exciting ideas for the achievement of maximizing customer interest. </p>
           <h2>Cooperation algorithm</h2>
           <p class="black-text">We suggest you familiarize with our scheme of work:</p>
             <img src="../assets/img/all/steps.svg"> <br><br><br>

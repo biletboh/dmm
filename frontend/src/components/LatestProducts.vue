@@ -45,7 +45,7 @@
               <img class="img-responsive" src="../assets/img/970x647/04.jpg" alt="Latest Products Image">
             </div>
           </div>
-          <h4>Service for efficient lead generation</h4>
+          <h4>Service for effective lead generation</h4>
           <p>Get custom creative lead generation materials through CPA, CPL and CPC networks.</p>
           <a class="link">Read More</a>
         </router-link>

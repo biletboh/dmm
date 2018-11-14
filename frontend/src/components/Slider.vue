@@ -50,9 +50,8 @@
         <div class="container">
           <div class="carousel-centered">
             <div class="margin-b-40">
-              <h2 class="carousel-title">Payment Systems <br> Integration</h2>
-              <p>DMM is a software solution for payment systems integration into your business in our key directions: <br> ICO, Forex, Binary, Cloud Mining, Online Games. We provide the possibility <br> of receiving payments in 4 main ways: Visa / Mastercard,
-                E-wallet, Bank Transfer, Cryptocurrencies.</p>
+              <h2 class="carousel-title">Service for effective <br>lead generation</h2>
+              <p>DMM.Solutions team offers you the development of creative materials for CPA, CPL and CPC networks. <br>We carry out development from start to finish, and also provide support <br>in your materials integration process.</p>
             </div>
             <router-link to="/product_3"  class="btn-theme btn-theme-sm btn-white-brd text-uppercase">Learn more</router-link>
           </div>
