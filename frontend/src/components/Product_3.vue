@@ -15,7 +15,9 @@
       <div class="row margin-b-40">
         <div class="col-sm-12">
           <h2>What does the service include?</h2>
-          <p class="black-text">DMM offers you the development of creative materials based on your proposal.  We create various materials from start to finish for the most successful completion of the sales funnel. You can order landings, banners, pop-ups, pop-unders, HTML-templates for mailing, design, and maintenance of automatic marketing funnels. We also translate creative materials into all languages of the world, which will significantly increase your target audience coverage. Our team is ready to offer you the most exciting ideas for the achievement of maximizing customer interest. </p>
+          <p class="black-text">DMM offers you the development of creative materials based on your proposal.  We create various materials from start to finish for the most successful completion of the sales funnel. You can order landings, banners, pop-ups, pop-unders, HTML-templates for mailing, design, and maintenance of automatic marketing funnels.</p>
+          <p class="black-text">Our team is ready to help you maximize customer interest. We also translate texts into all languages of Europe, Asia, and South America. We also improve the design of creative materials to achieve the best result. Such opportunity will significantly increase your target audience coverage. You can download our price list for translations below.</p><br>
+          <div class="text-center"><a href="https://dmm.solutions/static/Translation_Price.pdf" target="_blank" class="btn-theme btn-theme-sm btn-base-bg text-uppercase">Download Price</a></div><br>
           <h2>Cooperation algorithm</h2>
           <p class="black-text">We suggest you familiarize with our scheme of work:</p>
             <img src="../assets/img/all/steps.svg"> <br><br><br>
